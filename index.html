@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>جزوهٔ تعاملی تنظیم عصبی | علوم هشتم – فصل ۴</title>
+<meta name="description" content="جزوهٔ تعاملی، پر از انیمیشن و نقشهٔ ذهنی و آزمون، برای فصل ۴ علوم هشتم (تنظیم عصبی) — همراه با تشریح مغز گوسفند، حافظه، فوت‌های مطالعه، تغییرپذیری مغز، بیماری‌ها و اعتیاد">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============ پایه ============ */
+:root{
+  --bg:#F6F4FF; --ink:#231C4E; --muted:#615A8C;
+  --vio:#7C3AED; --vio2:#A78BFA; --pink:#EC4899; --cyan:#06B6D4;
+  --amber:#F59E0B; --green:#10B981; --red:#EF4444; --orange:#FB923C;
+  --grad:linear-gradient(135deg,#7C3AED 0%,#EC4899 55%,#06B6D4 110%);
+  --grad2:linear-gradient(135deg,#F59E0B,#EC4899);
+  --card:#FFFFFF; --rad:22px;
+  --shadow:0 16px 44px -16px rgba(76,29,149,.28);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{
+  margin:0;color:var(--ink);line-height:2.05;overflow-x:hidden;
+  font-family:'Vazirmatn',Vazir,Tahoma,'Segoe UI',sans-serif;
+  background:
+    radial-gradient(1100px 560px at 88% -4%,rgba(236,72,153,.11),transparent 62%),
+    radial-gradient(950px 520px at -2% 22%,rgba(6,182,212,.11),transparent 58%),
+    radial-gradient(800px 500px at 50% 105%,rgba(124,58,237,.10),transparent 60%),
+    var(--bg);
+}
+::selection{background:rgba(236,72,153,.30)}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:#EDE9FB}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#7C3AED,#EC4899);border-radius:99px;border:2px solid #EDE9FB}
+p{margin:0 0 12px}
+b,strong{font-weight:800}
+.hl{background:linear-gradient(0deg,rgba(253,230,138,.65),rgba(253,230,138,.65));border-radius:4px;padding:0 4px}
+.hl-p{background:rgba(244,114,182,.25);border-radius:4px;padding:0 4px}
+.hl-c{background:rgba(103,232,249,.35);border-radius:4px;padding:0 4px}
+
+/* لکه‌های شناور پس‌زمینه */
+.blob{position:fixed;z-index:-1;filter:blur(70px);opacity:.5;border-radius:50%;pointer-events:none;animation:blobfloat 14s ease-in-out infinite}
+.blob.b1{width:420px;height:420px;background:rgba(167,139,250,.35);top:-120px;right:-120px}
+.blob.b2{width:380px;height:380px;background:rgba(103,232,249,.30);bottom:8%;left:-140px;animation-delay:-6s}
+.blob.b3{width:300px;height:300px;background:rgba(249,168,212,.30);top:45%;right:-120px;animation-delay:-10s}
+@keyframes blobfloat{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-30px,36px) scale(1.08)}66%{transform:translate(26px,-24px) scale(.94)}}
+
+/* نوار پیشرفت مطالعه */
+#progress{position:fixed;top:0;right:0;height:5px;width:0;z-index:120;background:var(--grad);box-shadow:0 0 14px rgba(236,72,153,.75);border-radius:0 0 0 8px;transition:width .12s linear}
+
+/* ============ هیرو ============ */
+.hero{position:relative;min-height:100svh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;
+  background:linear-gradient(165deg,#150D38 0%,#341B74 42%,#6D28D9 78%,#A21CAF 108%)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(700px 340px at 20% 18%,rgba(103,232,249,.16),transparent 60%),
+  radial-gradient(760px 380px at 82% 80%,rgba(244,114,182,.20),transparent 62%);pointer-events:none}
+#neuro{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-in{position:relative;z-index:2;padding:90px 20px 70px;max-width:960px}
+.kicker{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:999px;font-size:14px;font-weight:700;
+  background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);animation:fadeup 1s .1s both}
+.kicker .dot{width:9px;height:9px;border-radius:50%;background:#67E8F9;box-shadow:0 0 10px #67E8F9;animation:blink 1.6s infinite}
+@keyframes blink{50%{opacity:.25}}
+.brain-float{font-size:clamp(84px,14vw,132px);line-height:1.15;display:inline-block;position:relative;animation:floaty 6s ease-in-out infinite;filter:drop-shadow(0 18px 40px rgba(0,0,0,.4));margin-top:18px}
+.brain-float .spark{position:absolute;font-size:30px;animation:sparkle 2.4s ease-in-out infinite}
+.brain-float .s1{top:-8px;right:-26px}.brain-float .s2{bottom:12px;left:-30px;animation-delay:-1.2s}
+.brain-float .s3{top:34px;left:-16px;animation-delay:-.6s}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-22px) rotate(2deg)}}
+@keyframes sparkle{0%,100%{opacity:.35;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(18deg)}}
+.hero h1{margin:8px 0 6px;font-size:clamp(46px,9vw,100px);font-weight:900;letter-spacing:-1px;
+  background:linear-gradient(90deg,#FDE68A 0%,#F9A8D4 48%,#67E8F9 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 8px 30px rgba(253,230,138,.22));animation:fadeup 1s .25s both}
+.type-wrap{min-height:40px;font-size:clamp(15px,2.4vw,21px);color:#EDE9FE;animation:fadeup 1s .4s both}
+.type{display:inline-block;border-left:3px solid #F9A8D4;padding-left:6px;white-space:nowrap;overflow:hidden;max-width:0;
+  animation:typing 2.8s steps(34) .9s forwards,caret .9s step-end infinite}
+@keyframes typing{to{max-width:34ch}}
+@keyframes caret{50%{border-color:transparent}}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 30px;animation:fadeup 1s .55s both}
+.hero-chips span{padding:9px 18px;border-radius:999px;font-size:13.5px;font-weight:700;background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(8px);transition:.25s}
+.hero-chips span:hover{background:rgba(255,255,255,.22);transform:translateY(-3px)}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fadeup 1s .7s both}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 30px;border-radius:999px;font-weight:800;font-size:15.5px;
+  text-decoration:none;cursor:pointer;border:none;font-family:inherit;transition:.28s;position:relative;overflow:hidden}
+.btn-grad{background:linear-gradient(135deg,#F59E0B,#EC4899 60%,#8B5CF6);color:#fff;box-shadow:0 14px 34px -10px rgba(236,72,153,.65)}
+.btn-grad:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 20px 44px -10px rgba(236,72,153,.8)}
+.btn-ghost{background:rgba(255,255,255,.09);color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.2);transform:translateY(-4px)}
+.btn-grad::after{content:"";position:absolute;top:0;bottom:0;width:46px;left:-70px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:skewX(-18deg);animation:sheen 3.2s 1.6s infinite}
+@keyframes sheen{0%{left:-70px}45%,100%{left:calc(100% + 70px)}}
+.scrolldn{position:absolute;bottom:26px;right:50%;transform:translateX(50%);z-index:2;color:#EDE9FE;font-size:13px;opacity:.85;animation:bob 1.8s ease-in-out infinite}
+.scrolldn .mouse{display:block;width:24px;height:38px;border:2px solid #EDE9FE;border-radius:14px;margin:0 auto 6px;position:relative}
+.scrolldn .mouse::after{content:"";position:absolute;top:7px;right:50%;transform:translateX(50%);width:4px;height:8px;border-radius:4px;background:#F9A8D4;animation:wheel 1.5s infinite}
+@keyframes wheel{to{transform:translate(50%,12px);opacity:0}}
+@keyframes bob{0%,100%{transform:translate(50%,0)}50%{transform:translate(50%,8px)}}
+@keyframes fadeup{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes pop{40%{transform:scale(1.05)}}
+@keyframes shake{20%{transform:translateX(7px)}40%{transform:translateX(-7px)}60%{transform:translateX(5px)}80%{transform:translateX(-4px)}}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+@keyframes fadeupk{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+</style>
+<style>
+/* ============ ناوبری ============ */
+.nav{position:sticky;top:10px;z-index:90;margin:16px auto 0;max-width:1080px;display:flex;gap:6px;align-items:center;
+  overflow-x:auto;padding:9px 12px;background:rgba(255,255,255,.78);backdrop-filter:blur(16px);
+  border:1px solid rgba(124,58,237,.16);border-radius:999px;box-shadow:var(--shadow);scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;padding:7px 14px;border-radius:999px;font-size:13.2px;font-weight:700;color:var(--muted);
+  text-decoration:none;transition:.25s}
+.nav a:hover{color:var(--vio);background:#F3EEFF}
+.nav a.on{background:var(--grad);color:#fff;box-shadow:0 6px 16px -6px rgba(124,58,237,.6)}
+
+/* ============ بخش‌ها ============ */
+section.sec{max-width:1100px;margin:0 auto;padding:78px 22px 26px;scroll-margin-top:92px}
+.sec-head{display:flex;align-items:center;gap:16px;margin-bottom:10px}
+.sec-num{flex:0 0 auto;width:60px;height:60px;border-radius:19px;background:var(--grad);color:#fff;display:grid;place-items:center;
+  font-size:23px;font-weight:900;box-shadow:0 12px 26px -9px rgba(124,58,237,.6);transform:rotate(-7deg);transition:.35s}
+.sec-head:hover .sec-num{transform:rotate(7deg) scale(1.08)}
+.sec h2{font-size:clamp(25px,3.8vw,38px);font-weight:900;margin:0;line-height:1.5}
+.sec .lead{color:var(--muted);font-size:15.5px;margin:2px 0 30px;max-width:760px}
+.gtext{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.card{background:var(--card);border-radius:var(--rad);padding:26px 28px;box-shadow:var(--shadow);
+  border:1px solid rgba(124,58,237,.10);transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 60px -18px rgba(76,29,149,.36)}
+.card h3{margin:0 0 10px;font-size:19px;font-weight:900;display:flex;align-items:center;gap:9px}
+.card .ic{font-size:30px;line-height:1;filter:drop-shadow(0 4px 8px rgba(0,0,0,.15));animation:bob 3s ease-in-out infinite}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.center{text-align:center}
+.small{font-size:13.5px;color:var(--muted)}
+.mt{margin-top:20px}.mb0{margin-bottom:0}
+
+/* آشکارسازی هنگام اسکرول */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.75,.25,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.12s}.reveal[data-d="2"]{transition-delay:.24s}
+.reveal[data-d="3"]{transition-delay:.36s}.reveal[data-d="4"]{transition-delay:.48s}
+.reveal[data-d="5"]{transition-delay:.6s}
+
+/* ============ جریان پیام (وایر متحرک) ============ */
+.flow{display:flex;align-items:center;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.fnode{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:16px;font-weight:800;font-size:14.5px;
+  background:#fff;border:2.5px solid var(--vio2);box-shadow:0 8px 20px -10px rgba(124,58,237,.45);white-space:nowrap;animation:pulse-node 2.6s infinite}
+.fnode .fi{font-size:22px}
+@keyframes pulse-node{0%,100%{box-shadow:0 8px 20px -10px rgba(124,58,237,.45)}50%{box-shadow:0 8px 26px -6px rgba(236,72,153,.55);transform:translateY(-3px)}}
+.wire{flex:1;min-width:64px;height:3px;position:relative;border-radius:3px;align-self:center;
+  background:repeating-linear-gradient(90deg,var(--vio2) 0 9px,transparent 9px 18px)}
+.wire::after{content:"";position:absolute;top:-5px;right:-13px;width:13px;height:13px;border-radius:50%;
+  background:var(--pink);box-shadow:0 0 12px var(--pink);animation:travel 1.7s linear infinite}
+@keyframes travel{to{right:calc(100% + 1px)}}
+.flow-label{display:block;text-align:center;color:var(--muted);font-size:13px;font-weight:700;margin-top:-8px}
+
+/* ============ نقشهٔ ذهنی (درخت) ============ */
+.mm-wrap{background:#fff;border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(124,58,237,.12);padding:30px 22px;overflow-x:auto}
+.mm{min-width:520px;direction:rtl}
+.mm ul{list-style:none;margin:0;padding-right:30px;position:relative}
+.mm li{position:relative;padding:9px 0}
+.mm li::before{content:"";position:absolute;right:-15px;top:0;bottom:0;border-right:3px solid rgba(124,58,237,.28)}
+.mm li::after{content:"";position:absolute;right:-15px;top:30px;width:15px;border-top:3px solid rgba(124,58,237,.28)}
+.mm li:last-child::before{bottom:auto;height:30px}
+.mm .node{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:15px;font-weight:800;font-size:14.5px;
+  background:#fff;border:2.5px solid var(--vio2);cursor:default;transition:.28s;box-shadow:0 8px 22px -10px rgba(124,58,237,.4);position:relative}
+.mm .node:hover{transform:translateY(-3px) scale(1.03)}
+.mm .node.has-kids{cursor:pointer}
+.mm .node.has-kids::after{content:"▾";margin-right:5px;color:var(--vio);transition:.35s;font-size:13px}
+.mm li.closed>.node::after{transform:rotate(-90deg)}
+.mm li.closed>ul{display:none}
+.mm .n-root{background:var(--grad);color:#fff;border-color:transparent;font-size:18px;padding:14px 26px;border-radius:18px;box-shadow:0 14px 32px -10px rgba(124,58,237,.65)}
+.mm .n-l1{border-color:var(--vio);background:#F5F1FF}
+.mm .n-l2{border-color:#67E8F9;background:#F0FDFF}
+.mm .n-l3{border-color:#F9A8D4;background:#FFF5FB;font-weight:700;font-size:13.5px}
+.mm .n-hl{border-color:#F59E0B;background:#FFFBEB}
+.mm .tag{font-size:11px;font-weight:800;padding:2px 9px;border-radius:99px;background:rgba(236,72,153,.14);color:#BE185D}
+.mm .grow{animation:mmgrow .7s both}
+@keyframes mmgrow{from{opacity:0;transform:translateX(22px)}to{opacity:1;transform:none}}
+.mm li:nth-child(1)>.node{animation-delay:.05s}.mm li:nth-child(2)>.node{animation-delay:.15s}
+.mm li:nth-child(3)>.node{animation-delay:.25s}.mm li:nth-child(4)>.node{animation-delay:.35s}
+
+/* ============ تب‌ها ============ */
+.tabs{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.tab{padding:11px 22px;border-radius:999px;border:2px solid rgba(124,58,237,.22);background:#fff;font-family:inherit;
+  font-weight:800;font-size:14.5px;color:var(--muted);cursor:pointer;transition:.28s}
+.tab:hover{transform:translateY(-3px);border-color:var(--vio)}
+.tab.on{background:var(--grad);color:#fff;border-color:transparent;box-shadow:0 10px 24px -8px rgba(124,58,237,.55)}
+.tabpane{display:none;animation:fadeupk .5s both}
+.tabpane.on{display:block}
+.step{display:flex;gap:14px;align-items:flex-start;padding:12px 0;opacity:.45;transition:.5s;border-bottom:1px dashed rgba(124,58,237,.18)}
+.step:last-child{border-bottom:none}
+.step.lit{opacity:1;transform:translateX(-6px)}
+.step .snum{flex:0 0 auto;width:38px;height:38px;border-radius:13px;background:#EDE9FE;color:var(--vio);display:grid;place-items:center;font-weight:900;transition:.4s}
+.step.lit .snum{background:var(--grad);color:#fff;box-shadow:0 8px 18px -6px rgba(124,58,237,.6);transform:rotate(-8deg) scale(1.1)}
+</style>
+<style>
+/* ============ مغز تعاملی SVG ============ */
+.brain-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+.brain-box{background:#fff;border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(124,58,237,.12);padding:22px}
+#brainsvg{width:100%;height:auto;display:block}
+#brainsvg .lobe{cursor:pointer;transition:filter .25s,opacity .25s}
+#brainsvg .lobe:hover{filter:brightness(1.14) saturate(1.15)}
+#brainsvg .lobe.on{filter:brightness(1.18) saturate(1.3) drop-shadow(0 0 10px rgba(124,58,237,.45))}
+#brainsvg .gyri{pointer-events:none}
+#brainsvg .cortex-ring{pointer-events:stroke;cursor:pointer;fill:none;stroke:rgba(124,58,237,.5);stroke-width:10;transition:.3s}
+#brainsvg .cortex-ring.on{stroke:var(--pink);stroke-width:13;filter:drop-shadow(0 0 8px rgba(236,72,153,.6))}
+.blegend{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.bchip{border:2px solid var(--c,#7C3AED);padding:6px 13px;border-radius:999px;cursor:pointer;font-size:12.8px;font-weight:800;
+  background:#fff;color:var(--ink);transition:.22s;font-family:inherit}
+.bchip:hover{transform:translateY(-3px)}
+.bchip.on{background:var(--c,#7C3AED);color:#fff;box-shadow:0 8px 18px -6px rgba(124,58,237,.55)}
+.binfo{background:#fff;border-radius:26px;box-shadow:var(--shadow);border:1px solid rgba(124,58,237,.12);padding:24px;
+  border-top:7px solid var(--k,#7C3AED);position:sticky;top:110px;animation:fadein .35s both}
+.binfo h3{margin:0 0 6px;font-size:20px;font-weight:900;display:flex;align-items:center;gap:8px}
+.binfo .btag{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--k,#7C3AED);border-radius:99px;padding:2px 11px;margin-bottom:10px}
+.binfo ul{margin:6px 0 0;padding-right:20px}
+.binfo li{margin-bottom:7px;font-size:14.2px}
+.extra{display:inline-block;font-size:10.5px;font-weight:800;background:linear-gradient(135deg,#FDE68A,#FDBA74);color:#7C2D12;border-radius:99px;padding:1px 9px;margin-right:6px}
+
+/* ============ ویجت‌های حیات (بصل‌النخاع) ============ */
+.vitals{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.vital{background:#fff;border-radius:20px;padding:18px;text-align:center;box-shadow:var(--shadow);border:1px solid rgba(124,58,237,.12);transition:.3s}
+.vital:hover{transform:translateY(-5px)}
+.vital .vt{font-weight:900;font-size:14.5px;margin-bottom:8px}
+.ecg-box svg{width:100%;height:70px;display:block}
+.ecg-base{stroke:rgba(239,68,68,.16);stroke-width:3;fill:none}
+.ecg-line{stroke:#EF4444;stroke-width:3.2;fill:none;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:70 640;stroke-dashoffset:710;animation:ecgrun 2.9s linear infinite;filter:drop-shadow(0 0 6px rgba(239,68,68,.8))}
+@keyframes ecgrun{to{stroke-dashoffset:0}}
+.breath{width:88px;height:88px;margin:0 auto;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;font-size:15px;
+  background:radial-gradient(circle at 34% 32%,#A5F3FC,#0891B2);animation:breathz 4.6s ease-in-out infinite}
+@keyframes breathz{0%,100%{transform:scale(.82)}55%{transform:scale(1.12)}}
+.bp-bar{height:13px;border-radius:99px;background:linear-gradient(90deg,#FCA5A5,#FDBA74,#93C5FD);position:relative;overflow:hidden}
+.bp-bar::after{content:"";position:absolute;top:-3px;bottom:-3px;width:9px;border-radius:9px;background:#B91C1C;
+  box-shadow:0 0 10px rgba(185,28,28,.7);animation:bpmove 2.7s ease-in-out infinite;left:14%}
+@keyframes bpmove{0%,100%{left:16%}50%{left:62%}}
+.vital .heart{display:inline-block;animation:beat 1s infinite;font-size:22px}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.28)}28%{transform:scale(1)}42%{transform:scale(1.2)}}
+
+/* ============ دموی انعکاس زانو ============ */
+.reflex-stage{display:flex;align-items:flex-end;justify-content:center;gap:26px;min-height:200px;position:relative;
+  background:linear-gradient(180deg,#FAF8FF,#F1EBFF);border-radius:20px;padding:24px 10px 18px;border:1.5px dashed rgba(124,58,237,.3)}
+.hammer{font-size:66px;line-height:1;transform-origin:85% 85%;transition:transform .15s}
+.reflex-stage.tapped .hammer{animation:hit .55s ease}
+@keyframes hit{28%{transform:rotate(42deg) translateY(-8px)}58%{transform:rotate(-12deg)}100%{transform:rotate(0)}}
+.leg{font-size:80px;line-height:1;transform-origin:top center;transition:transform .14s}
+.reflex-stage.tapped .leg{animation:kick .62s ease .18s}
+@keyframes kick{38%{transform:rotate(-30deg) translateX(-6px)}72%{transform:rotate(7deg)}100%{transform:rotate(0)}}
+.reflex-msg{position:absolute;top:12px;right:50%;transform:translate(50%,12px);background:var(--grad);color:#fff;font-weight:800;
+  font-size:13.5px;padding:10px 20px;border-radius:999px;opacity:0;transition:.45s;box-shadow:0 12px 26px -8px rgba(124,58,237,.6);white-space:nowrap}
+.reflex-stage.done .reflex-msg{opacity:1;transform:translate(50%,0)}
+
+/* ============ هشدار ایمنی ============ */
+.warn{background:linear-gradient(135deg,#FFF7ED,#FEF2F2);border:2px solid #FDBA74;border-radius:26px;padding:30px;position:relative;overflow:hidden}
+.warn::before{content:"";position:absolute;inset:-2px;border-radius:26px;box-shadow:0 0 0 0 rgba(239,68,68,.35);animation:warnpulse 2.4s infinite}
+@keyframes warnpulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.35)}70%{box-shadow:0 0 0 22px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+.warn .wicon{font-size:52px;animation:swing 2.2s ease-in-out infinite;display:inline-block}
+@keyframes swing{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+
+/* ============ شمارنده‌ها و دونات ============ */
+.stat-num{font-size:clamp(44px,6vw,62px);font-weight:900;line-height:1.2;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.donut-wrap{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center}
+.donut circle{fill:none;stroke-width:34;stroke-linecap:butt}
+.donut .d1{stroke:#14B8A6;stroke-dasharray:0 503;transition:stroke-dasharray 1.6s cubic-bezier(.3,.7,.3,1)}
+.donut .d2{stroke:#EC4899;stroke-dasharray:0 503;transition:stroke-dasharray 1.6s .5s cubic-bezier(.3,.7,.3,1)}
+.donut .dtxt{font-weight:900;fill:var(--ink)}
+.legend-dot{display:inline-block;width:13px;height:13px;border-radius:4px;margin-left:7px;vertical-align:-1px}
+
+/* ============ فلش‌کارت ============ */
+.fcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.fc{perspective:1100px;height:172px;cursor:pointer}
+.fc-in{position:relative;width:100%;height:100%;transition:transform .75s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
+.fc.flip .fc-in{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:20px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:18px;text-align:center}
+.fc-front{background:#fff;border:2px solid var(--vio2);box-shadow:0 10px 26px -12px rgba(124,58,237,.4);font-weight:900;font-size:16.5px}
+.fc-front .fic{font-size:34px}
+.fc-front .hint{font-size:11px;color:var(--muted);font-weight:700}
+.fc-back{background:var(--grad);color:#fff;transform:rotateY(180deg);font-size:13.8px;line-height:1.95;font-weight:600;box-shadow:0 14px 30px -12px rgba(236,72,153,.5)}
+
+/* ============ جدول ============ */
+.tbl-wrap{overflow-x:auto;border-radius:18px;box-shadow:var(--shadow);border:1px solid rgba(124,58,237,.12);background:#fff}
+table.tbl{width:100%;border-collapse:collapse;min-width:640px}
+.tbl th{background:var(--grad);color:#fff;padding:14px 16px;font-size:14.5px;text-align:right}
+.tbl td{padding:12px 16px;font-size:14px;border-bottom:1px solid #F0EBFC}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr{transition:.2s}
+.tbl tbody tr:nth-child(even){background:#FAF8FF}
+.tbl tbody tr:hover{background:#F3EEFF;transform:scale(1.004)}
+.tbl td:first-child{font-weight:800;color:var(--vio)}
+</style>
+<style>
+/* ============ آزمون ============ */
+.quiz-sec{background:linear-gradient(165deg,#1B1145,#3B1D82 55%,#701A75);border-radius:36px;max-width:960px;margin:0 auto;padding:34px 22px 40px;
+  box-shadow:0 30px 80px -24px rgba(49,10,101,.7);position:relative;overflow:hidden}
+.quiz-sec::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(480px 240px at 15% 12%,rgba(103,232,249,.14),transparent 60%),
+  radial-gradient(520px 260px at 88% 85%,rgba(244,114,182,.16),transparent 62%);pointer-events:none}
+.quiz-title{color:#fff;text-align:center;font-size:clamp(24px,4vw,34px);font-weight:900;margin:0 0 6px}
+.quiz-sub{color:#D8CCF8;text-align:center;font-size:14px;margin-bottom:24px}
+.quiz-shell{position:relative;z-index:2;max-width:800px;margin:0 auto;background:#fff;border-radius:26px;overflow:hidden;box-shadow:0 26px 60px -20px rgba(0,0,0,.5)}
+.q-head{background:var(--grad);color:#fff;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.q-head .qmeta{font-weight:800;font-size:14.5px;display:flex;gap:16px;align-items:center}
+.q-head .score-pill{background:rgba(255,255,255,.2);border-radius:99px;padding:4px 14px;font-size:13.5px;font-weight:800}
+.qprog-wrap{padding:0 24px;background:rgba(255,255,255,.14)}
+.qprog{height:8px;background:rgba(255,255,255,.25);border-radius:99px;overflow:hidden}
+.qprog i{display:block;height:100%;width:0;background:#fff;border-radius:99px;transition:width .45s cubic-bezier(.3,.7,.3,1)}
+.q-body{padding:26px 26px 30px;min-height:330px}
+.qq{font-size:17.5px;font-weight:900;margin:0 0 18px;line-height:2;animation:fadeupk .45s both}
+.qq .qnum{background:var(--grad);color:#fff;border-radius:12px;padding:2px 12px;font-size:14px;margin-left:8px}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:right;padding:13px 15px;border-radius:16px;
+  border:2px solid rgba(124,58,237,.20);background:#FBFAFF;font:inherit;font-size:15px;font-weight:600;color:var(--ink);
+  cursor:pointer;transition:.22s;margin-bottom:10px;font-family:inherit;animation:fadeupk .4s both}
+.opt:hover:not(:disabled){border-color:var(--vio);background:#F5F1FF;transform:translateX(-5px)}
+.opt:disabled{cursor:default;opacity:.75}
+.opt .badge{flex:0 0 auto;width:35px;height:35px;border-radius:12px;background:#EDE9FE;color:var(--vio);display:grid;place-items:center;font-weight:900;font-size:13.5px;transition:.25s}
+.opt.correct{border-color:var(--green);background:#ECFDF5;opacity:1;animation:pop .45s}
+.opt.correct .badge{background:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:#FEF2F2;opacity:1;animation:shake .45s}
+.opt.wrong .badge{background:var(--red);color:#fff}
+.opt.dim{opacity:.4!important}
+.expl{display:none;border-radius:16px;padding:14px 18px;background:#F5F3FF;border:1.5px dashed var(--vio2);margin-top:14px;font-size:14.3px;animation:fadeupk .45s both}
+.expl.show{display:block}
+.expl .et{font-weight:900}
+.expl.ok .et{color:#059669}.expl.no .et{color:#DC2626}
+.q-actions{display:flex;justify-content:flex-end;margin-top:18px;min-height:52px}
+.btn-next{display:none;align-items:center;gap:8px}
+.btn-next.show{display:inline-flex;animation:fadeupk .4s both}
+/* صفحه شروع و نتیجه */
+.q-start,.q-result{text-align:center;padding:16px 8px}
+.q-start .big,.q-result .big{font-size:74px;display:inline-block;animation:floaty 4s ease-in-out infinite}
+.q-start h3,.q-result h3{font-size:23px;font-weight:900;margin:8px 0 10px}
+.q-start ul{list-style:none;padding:0;margin:14px auto 22px;max-width:420px;text-align:right}
+.q-start li{padding:9px 14px;border-radius:14px;background:#FAF8FF;margin-bottom:8px;font-size:14px;font-weight:600;border:1px solid #EFE9FE}
+.ring-wrap{position:relative;width:190px;height:190px;margin:6px auto 14px}
+.ring-wrap svg{transform:rotate(-90deg)}
+.ring-bg{stroke:#EDE9FE;stroke-width:15;fill:none}
+.ring-val{stroke:url(#rg);stroke-width:15;fill:none;stroke-linecap:round;stroke-dasharray:440;stroke-dashoffset:440;transition:stroke-dashoffset 1.8s cubic-bezier(.3,.7,.25,1)}
+.ring-num{position:absolute;inset:0;display:grid;place-items:center;font-size:44px;font-weight:900}
+.ring-num small{font-size:14px;color:var(--muted);font-weight:700}
+.rmsg{font-size:17px;font-weight:900;margin:4px 0 18px}
+.rev{border:1.5px solid #EDE9FE;border-radius:16px;margin-bottom:10px;overflow:hidden;text-align:right;background:#fff}
+.rev-h{padding:12px 16px;cursor:pointer;background:#FBFAFF;font-weight:800;font-size:13.8px;display:flex;justify-content:space-between;gap:10px;align-items:center;transition:.2s}
+.rev-h:hover{background:#F5F1FF}
+.rev-h .rmark{font-weight:900;flex:0 0 auto}
+.rev-b{display:none;padding:12px 18px 16px;font-size:13.8px}
+.rev.open .rev-b{display:block;animation:fadeupk .35s both}
+.rev.open .rev-h .chev{transform:rotate(180deg)}
+.rev-h .chev{transition:.3s;color:var(--vio)}
+.your-ans{margin-top:6px;padding:8px 13px;border-radius:11px;font-size:13.3px;font-weight:700}
+.your-ans.ok{background:#ECFDF5;color:#047857}
+.your-ans.no{background:#FEF2F2;color:#B91C1C}
+.confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:5}
+.confetti i{position:absolute;top:-24px;display:block;animation:confall linear forwards}
+@keyframes confall{to{transform:translateY(640px) rotate(760deg);opacity:.85}}
+.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+
+/* ============ فوتر و دکمه بالا ============ */
+footer{margin-top:90px;background:linear-gradient(160deg,#150D38,#3B1D82 70%,#701A75);color:#D8CCF8;text-align:center;padding:44px 20px 34px;position:relative;overflow:hidden}
+footer::before{content:"🧠";position:absolute;font-size:190px;opacity:.06;right:-30px;bottom:-50px;transform:rotate(-14deg)}
+footer .flinks{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+footer .flinks span{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);padding:6px 15px;border-radius:99px;font-size:12.5px;font-weight:700}
+#totop{position:fixed;bottom:24px;left:24px;z-index:110;width:52px;height:52px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--grad);color:#fff;font-size:21px;box-shadow:0 14px 30px -8px rgba(124,58,237,.65);opacity:0;pointer-events:none;transition:.35s;transform:translateY(14px)}
+#totop.show{opacity:1;pointer-events:auto;transform:none}
+#totop:hover{transform:translateY(-4px)}
+
+/* ============ ریسپانسیو ============ */
+@media(max-width:880px){
+  .grid2,.grid3,.brain-wrap,.donut-wrap,.vitals{grid-template-columns:1fr}
+  .vitals{gap:12px}
+  .binfo{position:static}
+  section.sec{padding:56px 15px 20px}
+  .card{padding:20px 18px}
+  .q-body{padding:20px 16px 26px}
+  .mm{min-width:480px}
+  .hero-in{padding:70px 16px 60px}
+}
+@media print{.nav,#totop,.hero-btns,.blob,#neuro{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.15s!important}}
+
+/* ============ بخش‌های جدید (پیوست‌های ۴۴ تا ۵۳) ============ */
+.plast-track{height:16px;background:#EFE9FB;border-radius:99px;overflow:hidden}
+.plast-track i{display:block;height:100%;width:0;border-radius:99px;background:var(--grad);transition:width .6s cubic-bezier(.3,.7,.3,1)}
+.age-lab{background:#FAF8FF;border:1.5px dashed rgba(124,58,237,.3);border-radius:18px;padding:18px 20px}
+input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:10px;border-radius:99px;background:linear-gradient(90deg,#7C3AED,#EC4899,#06B6D4);outline:none;cursor:pointer;margin:6px 0 12px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid #7C3AED;box-shadow:0 4px 12px rgba(124,58,237,.45);cursor:grab}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid #7C3AED;box-shadow:0 4px 12px rgba(124,58,237,.45);cursor:grab}
+input[type=range]:active::-webkit-slider-thumb{cursor:grabbing;transform:scale(1.1)}
+.cage{border-radius:20px;padding:20px;text-align:center;transition:.3s}
+.cage:hover{transform:translateY(-5px)}
+.cage.empty{background:#FFFBEB;border:2px dashed #F59E0B}
+.cage.rich{background:#ECFDF5;border:2px dashed #10B981}
+#neuronsvg{width:100%;height:auto;display:block}
+#neuronsvg .npart{cursor:pointer;transition:filter .25s}
+#neuronsvg .npart:hover{filter:brightness(1.1) saturate(1.2)}
+#neuronsvg .npart.on{filter:drop-shadow(0 0 9px rgba(236,72,153,.6)) brightness(1.06)}
+#neuronsvg text{font-family:'Vazirmatn',Tahoma,sans-serif;font-weight:800;fill:#615A8C;pointer-events:none}
+#tipsGrid .fc{height:216px}
+#tipsGrid .fc-back{font-size:12.6px;line-height:1.85}
+#tipsGrid .fc-front{font-size:14.5px}
+.chip-row{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0}
+.chip-row span{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:800;background:#F5F1FF;border:1.5px solid var(--vio2);color:var(--vio)}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+<!-- ============ هیرو ============ -->
+<header class="hero" id="top">
+  <canvas id="neuro"></canvas>
+  <div class="hero-in">
+    <span class="kicker"><span class="dot"></span> علوم تجربی پایهٔ هشتم &nbsp;|&nbsp; فصل ۴ &nbsp;|&nbsp; کتاب درسی: صفحات ۲۶ تا ۳۲ + پیوست‌های ۴۴ تا ۵۳</span>
+    <div class="brain-float">🧠<span class="spark s1">✨</span><span class="spark s2">⚡</span><span class="spark s3">💡</span></div>
+    <h1>تنظیم عصبی</h1>
+    <div class="type-wrap"><span class="type">سفر تعاملی به دنیای شگفت‌انگیز دستگاه عصبی بدن شما 🚀</span></div>
+    <div class="hero-chips">
+      <span>📖 همهٔ مفاهیم کتاب + پیوست‌ها</span>
+      <span>🔬 آزمایش تشریح مغز گوسفند</span>
+      <span>🧩 نقشهٔ ذهنی تعاملی</span>
+      <span>🎨 انیمیشن و شبیه‌سازی</span>
+      <span>📝 آزمون ۴۲ سؤالی</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#s1" class="btn btn-grad">شروع یادگیری ⬇</a>
+      <a href="#quiz" class="btn btn-ghost">رفتن به آزمون 📝</a>
+    </div>
+  </div>
+  <div class="scrolldn"><span class="mouse"></span>اسکرول کنید</div>
+</header>
+
+<!-- ============ ناوبری ============ -->
+<nav class="nav" id="nav">
+  <a href="#s1">🎯 چرا تنظیم؟</a>
+  <a href="#s2">⚖️ دو نوع تنظیم</a>
+  <a href="#s3">🧩 دستگاه عصبی</a>
+  <a href="#s4">🏃 ارادی و غیرارادی</a>
+  <a href="#s5">🎛️ مراکز عصبی</a>
+  <a href="#s6">🧠 مغز</a>
+  <a href="#s7">🤸 مخچه</a>
+  <a href="#s8">❤️ ساقه و بصل‌النخاع</a>
+  <a href="#s9">🪢 نخاع</a>
+  <a href="#s10">⛑️ هشدار ایمنی</a>
+  <a href="#s11">📊 آیا می‌دانید؟</a>
+  <a href="#s12">🗂️ مرور سریع</a>
+  <a href="#s13">🗺️ نقشهٔ ذهنی</a>
+  <a href="#s14">🔬 تشریح مغز</a>
+  <a href="#s15">🧠 حافظه</a>
+  <a href="#s16">📚 فوت‌های مطالعه</a>
+  <a href="#s17">🔄 تغییرپذیری</a>
+  <a href="#s18">🏥 بیماری‌ها</a>
+  <a href="#s19">⚠️ اعتیاد</a>
+  <a href="#s20">❓ خود را بیازمایید</a>
+  <a href="#quiz">📝 آزمون</a>
+</nav>
+<!-- ============ ۱: چرا تنظیم؟ ============ -->
+<section class="sec" id="s1">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱</div>
+    <h2>چرا بدن به <span class="gtext">تنظیم</span> نیاز دارد؟</h2>
+  </div>
+  <p class="lead reveal">کتاب با یک مثال آشنای بازی با توپ شروع می‌شود. بیا با هم ببینیم در آن لحظه‌ها چه اتفاقی در بدن می‌افتد!</p>
+
+  <div class="card reveal">
+    <h3><span class="ic">⚽</span> داستان کتاب: بازی با توپ</h3>
+    <p>هنگامی که با توپ بازی می‌کنید، <b class="hl">چشم‌هایتان جهت حرکت توپ را می‌بیند</b> و یا به سمت توپ حرکت می‌کنید و به آن ضربه می‌زنید. در همین حال، <b class="hl">ضربان قلب و تنفس شما نیز افزایش می‌یابد</b> و پوست بدنتان با عرق کردن، <b class="hl">گرمای اضافی بدن را دفع می‌کند</b>. ولی هنگام استراحت، حرکت بدن، ضربان قلب، تنفس و میزان عرق‌کردن شما کاهش می‌یابد.</p>
+    <p class="mb0">پس بدن در وضعیت‌های مختلف، فعالیت‌های متفاوتی دارد و همهٔ این‌ها باید <b>هماهنگ</b> باشند. سؤال اصلی فصل اینجاست: <b class="hl-p">هماهنگی و تنظیم این فعالیت‌ها در بدن در وضعیت‌های مختلف چگونه انجام می‌شود؟</b></p>
+  </div>
+
+  <div class="card reveal mt" data-d="1">
+    <h3><span class="ic">🕹️</span> خودت امتحان کن: بدن در دو وضعیت</h3>
+    <p class="small mb0">دکمه را بزن تا بدن بین ورزش و استراحت جابه‌جا شود و ببینی چه چیزی زیاد و چه چیزی کم می‌شود.</p>
+    <div class="center mt">
+      <button class="tab on" id="stateSport" onclick="setState('sport')">در حال ورزش ⚽</button>
+      <button class="tab" id="stateRest" onclick="setState('rest')">در حال استراحت 😴</button>
+    </div>
+    <div id="stateBars" class="mt"></div>
+  </div>
+</section>
+
+<!-- ============ ۲: دو نوع تنظیم ============ -->
+<section class="sec" id="s2">
+  <div class="sec-head reveal">
+    <div class="sec-num">۲</div>
+    <h2>تنظیم بدن به <span class="gtext">دو صورت</span> انجام می‌شود</h2>
+  </div>
+  <p class="lead reveal">جواب سؤال اصلی فصل: تنظیم دستگاه‌های بدن به دو صورت انجام می‌شود. این فصل دربارهٔ نوع اول صحبت می‌کند.</p>
+  <div class="grid2">
+    <div class="card reveal" style="border-top:6px solid var(--vio)">
+      <h3><span class="ic">⚡</span> تنظیم عصبی</h3>
+      <p>کار <b>دستگاه عصبی</b> است؛ یعنی شبکه‌ای از <b class="hl">مغز، نخاع و اعصاب</b> که با پیام‌های سریع، همهٔ قسمت‌های بدن را کنترل و هماهنگ می‌کند.</p>
+      <p class="mb0 small">📌 موضوع اصلی این جزوه و فصل ۴ کتاب همین نوع تنظیم است: <b>ساختار و عملکرد دستگاه عصبی</b>.</p>
+    </div>
+    <div class="card reveal" data-d="1" style="border-top:6px solid var(--cyan)">
+      <h3><span class="ic">🧪</span> تنظیم شیمیایی (هورمونی)</h3>
+      <p>کار <b>دستگاه هورمونی</b> است؛ هورمون‌ها (مواد شیمیایی) از راه خون به قسمت‌های بدن می‌رسند و فعالیت‌ها را تنظیم می‌کنند.</p>
+      <p class="mb0 small">📌 این نوع تنظیم، موضوع فصل دیگری از کتاب است؛ در این فصل فقط نامش را می‌شنویم.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ۳: دستگاه عصبی ============ -->
+<section class="sec" id="s3">
+  <div class="sec-head reveal">
+    <div class="sec-num">۳</div>
+    <h2>دستگاه عصبی؛ <span class="gtext">دو بخش اصلی</span></h2>
+  </div>
+  <p class="lead reveal">دستگاه عصبی، مانند بقیهٔ دستگاه‌های بدن، از اندام‌ها و بافت‌های ساخته‌شده است و <b>شامل دو بخش مرکزی و محیطی</b> است. روی گره‌های نقشهٔ ذهنی کلیک کن!</p>
+
+  <div class="mm-wrap reveal">
+    <div class="mm">
+      <ul>
+        <li><span class="node n-root">🧠 دستگاه عصبی</span>
+          <ul>
+            <li><span class="node n-l1 has-kids">🎛️ بخش مرکزی (CNS)</span>
+              <ul>
+                <li><span class="node n-l2">🧠 مغز — درون جمجمه</span></li>
+                <li><span class="node n-l2">🪢 نخاع — درون ستون مهره‌ها</span></li>
+                <li><span class="node n-l3">مرکز واپایش (کنترل) فعالیت‌های ارادی و غیرارادی بدن</span></li>
+              </ul>
+            </li>
+            <li><span class="node n-l1 has-kids">🕸️ بخش محیطی (PNS)</span>
+              <ul>
+                <li><span class="node n-l2">مجموعهٔ اعصاب</span></li>
+                <li><span class="node n-l3">همهٔ قسمت‌های بدن را به بخش مرکزی وصل می‌کند</span></li>
+                <li><span class="node n-l3">پیام حسی به مرکز می‌برد + پیام حرکتی از مرکز می‌آورد</span></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p class="small center mb0">🖱️ روی گره‌های دارای پیکان کلیک کن تا باز و بسته شوند.</p>
+  </div>
+
+  <div class="grid2 mt">
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">👁️</span> پیام حسی</h3>
+      <p class="small">منشأ پیام حسی، <b class="hl">اطلاعاتی است که از محیط دریافت می‌شود</b>. اعصاب این پیام‌ها را از بخش‌های مختلف بدن به بخش مرکزی (مغز و نخاع) می‌رسانند.</p>
+      <div class="flow">
+        <span class="fnode"><span class="fi">🖐️</span> اندام حسی</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🧠</span> مغز و نخاع</span>
+      </div>
+      <span class="flow-label">جهت حرکت پیام حسی: از بدن به مرکز</span>
+    </div>
+    <div class="card reveal" data-d="2">
+      <h3><span class="ic">💪</span> پیام عصبی (حرکتی)</h3>
+      <p class="small">به <b class="hl-p">دستورهایی که در مغز و نخاع صادر می‌شوند</b> پیام عصبی می‌گویند؛ مثلاً دستورهایی که به ماهیچه‌ها فرستاده می‌شوند تا حرکت انجام شود.</p>
+      <div class="flow">
+        <span class="fnode"><span class="fi">🧠</span> مغز و نخاع</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">💪</span> ماهیچه‌ها</span>
+      </div>
+      <span class="flow-label">جهت حرکت پیام حرکتی: از مرکز به اندام‌های حرکتی</span>
+    </div>
+  </div>
+</section>
+<!-- ============ ۴: فعالیت‌های ارادی، غیرارادی و بازتابی ============ -->
+<section class="sec" id="s4">
+  <div class="sec-head reveal">
+    <div class="sec-num">۴</div>
+    <h2>فعالیت‌های <span class="gtext">ارادی</span>، <span class="gtext">غیرارادی</span> و <span class="gtext">بازتابی</span></h2>
+  </div>
+  <p class="lead reveal">همهٔ فعالیت‌های بدن از یک جنس نیستند! با تب‌ها مقایسه کن:</p>
+
+  <div class="tabs reveal">
+    <button class="tab on" data-tab="t1">🖊️ فعالیت ارادی</button>
+    <button class="tab" data-tab="t2">❤️ فعالیت غیرارادی</button>
+    <button class="tab" data-tab="t3">⚡ واکنش بازتابی</button>
+  </div>
+
+  <div class="tabpane on" id="t1">
+    <div class="card">
+      <h3><span class="ic">🖊️</span> فعالیت ارادی؛ مثال کتاب: مدادِ افتاده!</h3>
+      <p>وقتی مداد شما از روی میز به زمین می‌افتد و شما آن را می‌بینید، <b>پیامی به دستگاه عصبی مرکزی می‌رود</b>. مغز این پیام را دریافت می‌کند و وقتی تصمیم می‌گیرید مداد را بردارید، <b class="hl">بعضی ماهیچه‌ها منقبض می‌شوند</b>؛ با انقباض آنها به سمت مداد خم می‌شوید و آن را برمی‌دارید.</p>
+      <p class="mb0">این فعالیت چون <b class="hl-p">با اراده و خواستِ ما</b> انجام می‌شود، «فعالیت ارادی» نامیده می‌شود.</p>
+      <div class="mt" id="pencilSteps">
+        <div class="step"><span class="snum">۱</span><div><b>مداد می‌افتد</b> و چشم آن را می‌بیند 👀</div></div>
+        <div class="step"><span class="snum">۲</span><div><b>پیام حسی</b> از چشم به دستگاه عصبی مرکزی می‌رود</div></div>
+        <div class="step"><span class="snum">۳</span><div><b>مغز پیام را دریافت</b> و تصمیم می‌گیرد: «بردارش!»</div></div>
+        <div class="step"><span class="snum">۴</span><div><b>پیام حرکتی</b> به ماهیچه‌ها فرستاده می‌شود</div></div>
+        <div class="step"><span class="snum">۵</span><div><b>ماهیچه‌ها منقبض می‌شوند</b>؛ خم می‌شویم و مداد را برمی‌داریم ✅</div></div>
+      </div>
+      <div class="center mt"><button class="btn btn-grad" style="padding:11px 26px;font-size:14px" onclick="playSteps()">▶ پخش مرحله‌به‌مرحله</button></div>
+    </div>
+  </div>
+
+  <div class="tabpane" id="t2">
+    <div class="card">
+      <h3><span class="ic">❤️</span> فعالیت غیرارادی؛ بدون آنکه بخواهیم!</h3>
+      <p>بعضی فعالیت‌ها مانند <b class="hl">ضربان قلب</b> غیرارادی هستند؛ یعنی بدون اراده و خواست ما انجام می‌شوند. وقتی ورزش می‌کنید، <b class="hl">با دخالت دستگاه عصبی، ضربان قلب و تنفس زیاد می‌شود</b>. تنظیم این فعالیت‌ها غیرارادی است.</p>
+      <p class="mb0">نکتهٔ مهم کتاب: این فعالیت‌ها <b class="hl-p">همیشه انجام می‌شوند و متناسب با نیاز بدن تنظیم می‌شوند</b>.</p>
+      <div class="grid3 mt">
+        <div class="card center" style="box-shadow:none;border:2px solid #FECDD3"><div style="font-size:40px">❤️</div><b>ضربان قلب</b><div class="small">همیشه فعال است</div></div>
+        <div class="card center" style="box-shadow:none;border:2px solid #A5F3FC"><div style="font-size:40px">🫁</div><b>تنفس</b><div class="small">متناسب با نیاز بدن</div></div>
+        <div class="card center" style="box-shadow:none;border:2px solid #FDE68A"><div style="font-size:40px">💧</div><b>عرق‌کردن</b><div class="small">دفع گرمای اضافی</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpane" id="t3">
+    <div class="card">
+      <h3><span class="ic">⚡</span> واکنش بازتابی (انعکاسی)؛ مثال کتاب: کتریِ داغ!</h3>
+      <p>آیا تا به حال دست شما با کتری داغ برخورد کرده است؟ در این حالت دستِ شما <b class="hl">به‌طور غیرارادی و بسیار سریع عقب کشیده می‌شود</b>. این نوع واکنش‌ها که <b>بدون فکر کردن و اراده</b> انجام می‌شوند، <b class="hl-p">بازتابی یا انعکاسی</b> نامیده می‌شوند.</p>
+      <p class="mb0">پاسخ‌های انعکاسی <b>سریع</b> هستند، <b>بدون اراده و تفکر</b> انجام می‌شوند و <b class="hl">اغلب برای حفظ سلامت بدن</b> هستند.</p>
+      <div class="grid3 mt">
+        <div class="card center" style="box-shadow:none;border:2px solid #C7F9E5"><div style="font-size:38px">👁️‍🗨️</div><b>پلک‌زدن</b></div>
+        <div class="card center" style="box-shadow:none;border:2px solid #C7F9E5"><div style="font-size:38px">🤧</div><b>عطسه</b></div>
+        <div class="card center" style="box-shadow:none;border:2px solid #C7F9E5"><div style="font-size:38px">😷</div><b>سرفه</b></div>
+      </div>
+      <div class="mt" style="background:#F0FDFF;border:1.5px solid #67E8F9;border-radius:16px;padding:14px 18px">
+        <b>🧪 فعالیت کتاب (صفحهٔ ۲۹):</b> روی صندلی بنشینید و یک پای خود را روی پای دیگر بیندازید. با یک چکش پلاستیکی ضربه‌ای به زیر زانو وارد کنید تا پاسخ انعکاسی را ببینید. <span class="small">(در بخش نخاع، این آزمایش را به‌صورت تعاملی انجام می‌دهیم! ⬇️)</span>
+      </div>
+      <div class="mt" style="background:#F5F3FF;border:1.5px solid var(--vio2);border-radius:16px;padding:14px 18px">
+        <b>🔎 اطلاعات جمع‌آوری کنید:</b> با مراجعه به منابع معتبر، دربارهٔ نقش هر یک از فعالیت‌های غیرارادی مانند پلک‌زدن، عطسه و سرفه اطلاعاتی جمع‌آوری کنید و نتایج را به کلاس گزارش دهید.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ۵: مراکز عصبی ============ -->
+<section class="sec" id="s5">
+  <div class="sec-head reveal">
+    <div class="sec-num">۵</div>
+    <h2>مراکز عصبی: <span class="gtext">مغز و نخاع</span></h2>
+  </div>
+  <p class="lead reveal">حالا به مقر فرماندهی می‌رویم! مغز و نخاع مانند یک مرکز فرماندهی کار می‌کنند.</p>
+  <div class="grid2">
+    <div class="card reveal">
+      <h3><span class="ic">🛡️</span> محل قرارگیری — محافظت استخوانی</h3>
+      <p><b class="hl">مغز درون جمجمه</b> و <b class="hl">نخاع درون کانال ستون مهره‌ها</b> قرار دارند؛ یعنی این دو اندامِ ارزشمند، داخل قفسه‌های استخوانی محکم از خود محافظت دارند.</p>
+      <div class="center mt" style="font-size:44px">🦴 🧠 🦴</div>
+    </div>
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">🎛️</span> نقش مرکز فرماندهی</h3>
+      <p>این دو اندام همانند <b class="hl-p">مرکز فرماندهی</b> هستند؛ ضمن <b>دریافت و درک اطلاعات</b>، آنها را <b>بررسی می‌کنند</b> و در صورت نیاز، <b class="hl">دستور لازم را به اندام‌های بدن می‌دهند</b>.</p>
+      <div class="flow">
+        <span class="fnode"><span class="fi">📥</span> دریافت</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🔍</span> بررسی</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">📤</span> صدور دستور</span>
+      </div>
+    </div>
+  </div>
+  <div class="card reveal mt center" data-d="2" style="background:linear-gradient(135deg,#F5F1FF,#FDF2F8)">
+    <h3 class="center" style="justify-content:center">🧭 نقشهٔ راه ادامهٔ ماجرا</h3>
+    <p class="mb0">مغز خودش <b>سه قسمت</b> دارد: <b class="hl">نیمکره‌های مغز</b>، <b class="hl">مخچه</b> و <b class="hl">ساقهٔ مغز</b>. در بخش‌های بعدی، هر سه را با جزئیات می‌شناسیم 👇</p>
+    <div class="hero-chips" style="margin-top:14px">
+      <a href="#s6" class="btn btn-ghost" style="color:var(--vio);border-color:var(--vio2);font-size:13px;padding:9px 18px">۱. نیمکره‌های مغز 🧠</a>
+      <a href="#s7" class="btn btn-ghost" style="color:var(--vio);border-color:var(--vio2);font-size:13px;padding:9px 18px">۲. مخچه 🤸</a>
+      <a href="#s8" class="btn btn-ghost" style="color:var(--vio);border-color:var(--vio2);font-size:13px;padding:9px 18px">۳. ساقهٔ مغز ❤️</a>
+    </div>
+  </div>
+</section>
+<!-- ============ ۶: مغز ============ -->
+<section class="sec" id="s6">
+  <div class="sec-head reveal">
+    <div class="sec-num">۶</div>
+    <h2>🧠 مغز؛ <span class="gtext">مرکز فرماندهی</span> بدن شما</h2>
+  </div>
+  <p class="lead reveal">مغز شامل <b>نیمکره‌های مغز، مخچه و ساقهٔ مغز</b> است. روی هر قسمت از تصویر (یا روی دکمه‌های رنگی) کلیک کن تا توضیحش را ببینی!</p>
+
+  <div class="brain-wrap">
+    <div class="brain-box reveal">
+      <svg id="brainsvg" viewBox="0 0 640 500" role="img" aria-label="نمای مغز و قسمت‌های آن">
+        <defs>
+          <clipPath id="cerclip">
+            <path d="M120 330 C70 295 58 205 108 140 C150 84 240 55 330 62 C430 70 520 120 548 200 C566 252 552 305 505 335 C470 357 430 362 395 358 L215 358 C175 358 145 348 120 330 Z"/>
+          </clipPath>
+        </defs>
+        <ellipse cx="320" cy="300" rx="290" ry="250" fill="#F7F3FF" opacity=".55"/>
+        <path d="M120 330 C70 295 58 205 108 140 C150 84 240 55 330 62 C430 70 520 120 548 200 C566 252 552 305 505 335 C470 357 430 362 395 358 L215 358 C175 358 145 348 120 330 Z" fill="#F3E8FF" stroke="#E9D5FF" stroke-width="2"/>
+        <g clip-path="url(#cerclip)">
+          <ellipse class="lobe" data-key="frontal" cx="195" cy="228" rx="108" ry="142" transform="rotate(-18 195 228)" fill="#FB923C" stroke="#fff" stroke-width="3.5"/>
+          <ellipse class="lobe" data-key="parietal" cx="332" cy="138" rx="132" ry="96" fill="#A78BFA" stroke="#fff" stroke-width="3.5"/>
+          <ellipse class="lobe" data-key="temporal" cx="315" cy="306" rx="142" ry="90" fill="#2DD4BF" stroke="#fff" stroke-width="3.5"/>
+          <ellipse class="lobe" data-key="occipital" cx="492" cy="206" rx="100" ry="122" fill="#4ADE80" stroke="#fff" stroke-width="3.5"/>
+          <g class="gyri" stroke="#ffffff" stroke-width="3.5" fill="none" opacity=".38" stroke-linecap="round">
+            <path d="M150 185 q32 -26 62 -6 q26 17 54 -9"/>
+            <path d="M170 262 q36 -20 66 0 q30 17 58 -11"/>
+            <path d="M250 118 q30 20 62 6 q26 -10 52 4"/>
+            <path d="M300 218 q36 -18 70 -3 q30 11 54 -15"/>
+            <path d="M370 165 q30 22 64 8 q24 -10 48 6"/>
+            <path d="M420 262 q28 -22 60 -7"/>
+            <path d="M232 322 q34 -14 68 -2"/>
+            <path d="M398 320 q30 -16 62 -4"/>
+          </g>
+        </g>
+        <path class="cortex-ring" data-key="cortex" d="M120 330 C70 295 58 205 108 140 C150 84 240 55 330 62 C430 70 520 120 548 200 C566 252 552 305 505 335 C470 357 430 362 395 358 L215 358 C175 358 145 348 120 330 Z"/>
+        <g class="lobe" data-key="cerb">
+          <path d="M395 362 C415 398 470 412 522 392 C556 378 568 352 552 338 C535 350 470 366 398 360 Z" fill="#FBBF24" stroke="#fff" stroke-width="3"/>
+          <g stroke="rgba(146,64,14,.4)" stroke-width="2.2" fill="none" stroke-linecap="round">
+            <path d="M422 366 L428 400"/><path d="M447 370 L450 403"/><path d="M472 372 L473 405"/><path d="M497 370 L494 402"/><path d="M521 365 L515 396"/>
+          </g>
+        </g>
+        <path class="lobe" data-key="stem" d="M312 352 C318 398 308 434 320 474 L364 474 C352 434 364 396 370 352 Z" fill="#F472B6" stroke="#fff" stroke-width="3"/>
+        <path class="lobe" data-key="medulla" d="M315 430 C312 446 314 460 320 474 L364 474 C356 458 359 444 362 430 Z" fill="#DB2777" stroke="#fff" stroke-width="3"/>
+      </svg>
+      <div class="blegend" id="blegend"></div>
+    </div>
+    <div class="binfo reveal" data-d="1" id="binfo" style="--k:#7C3AED"></div>
+  </div>
+
+  <div class="grid3 mt">
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">⇄</span> نیمکره‌ها همکاری می‌کنند</h3>
+      <p class="mb0 small">نیمکره‌های مغز <b>با هم مرتبط‌اند و فعالیت‌های مشترک هم دارند</b>. مثلاً وقتی به جسمی نگاه می‌کنیم، <b class="hl">هر دو چشم و هر دو نیمکره با هم عمل می‌کنند</b>.</p>
+    </div>
+    <div class="card reveal" data-d="2">
+      <h3><span class="ic">🔄</span> کنترل متقاطع بدن</h3>
+      <p class="mb0 small"><b class="hl">نیمکرهٔ چپ، فعالیت‌های نیمهٔ راست بدن</b> و <b class="hl-p">نیمکرهٔ راست، فعالیت‌های نیمهٔ چپ بدن</b> را کنترل (واپایش) می‌کند.</p>
+      <div class="flow mt">
+        <span class="fnode"><span class="fi">🧠</span> نیمکرهٔ چپ</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🫱</span> نیمهٔ راست بدن</span>
+      </div>
+    </div>
+    <div class="card reveal" data-d="3">
+      <h3><span class="ic">💭</span> توانایی‌های نیمکره‌ها</h3>
+      <p class="mb0 small">نیمکره‌های مغز به <b class="hl">توانایی فکرکردن، حرف‌زدن و حل مسئله</b> راه می‌دهند؛ به همین دلیل شما می‌توانید این جزوه را بخوانید و فکر کنید!</p>
+      <div class="center mt" style="font-size:34px;letter-spacing:8px">💭 🗣️ 🧩</div>
+    </div>
+  </div>
+</section>
+<!-- ============ ۷: مخچه ============ -->
+<section class="sec" id="s7">
+  <div class="sec-head reveal">
+    <div class="sec-num">۷</div>
+    <h2>🤸 مخچه؛ <span class="gtext">نگهبان تعادل</span></h2>
+  </div>
+  <p class="lead reveal">وقتی ورزش می‌کنید، بدن شما در جهت‌های مختلفی حرکت می‌کند و در همین حال باید تعادل خود را حفظ کند. اما چگونه؟</p>
+  <div class="grid2">
+    <div class="card reveal">
+      <h3><span class="ic">📡</span> مکانیسم حفظ تعادل</h3>
+      <p>پیام‌هایی از سوی اندام‌هایی مثل <b class="hl">چشم، گوش و پوست</b> برای مراکز عصبی، <b>به‌ویژه مخچه</b>، فرستاده می‌شود. مخچه با بررسی این اطلاعات، <b class="hl-p">پیام حرکتی را برای ماهیچه‌ها می‌فرستد</b>؛ با انقباض آنها، تعادل بدن در هر حالتی حفظ می‌شود.</p>
+      <div class="flow mt">
+        <span class="fnode"><span class="fi">👁️</span></span>
+        <span class="fnode"><span class="fi">👂</span></span>
+        <span class="fnode"><span class="fi">🤚</span></span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🤸</span> مخچه</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">💪</span> ماهیچه‌ها</span>
+      </div>
+      <span class="flow-label">چشم + گوش + پوست ← مخچه ← ماهیچه‌ها</span>
+    </div>
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">🎪</span> بندبازان و ژیمناست‌کارها</h3>
+      <p>در حالت‌های عادی مثل <b>راه‌رفتن</b> و <b>نشستن</b> نیز مخچه باعث حفظ تعادل بدن می‌شود. اما بندبازان و افرادی که ژیمناستیک کار می‌کنند چرا چنین تعادل خارق‌العاده‌ای دارند؟</p>
+      <p class="mb0">چون با <b class="hl">تمرینِ بیشتر، مخچهٔ خود را تقویت کرده‌اند</b>! پس مخچه هم مثل ماهیچه با تمرین قوی‌تر می‌شود. 💪</p>
+      <div class="center mt" style="font-size:40px">🎪 🤾 🧘</div>
+    </div>
+  </div>
+  <div class="card reveal mt center" data-d="2" style="border:2px solid #FDE68A;background:#FFFBEB">
+    <p class="mb0">🧩 <b>بخش میانی مخچه «کرمینه»</b> نام دارد (در شکل ۴ کتاب: نیمکرهٔ چپ + نیمکرهٔ راست + کرمینه).</p>
+  </div>
+</section>
+
+<!-- ============ ۸: ساقهٔ مغز و بصل‌النخاع ============ -->
+<section class="sec" id="s8">
+  <div class="sec-head reveal">
+    <div class="sec-num">۸</div>
+    <h2>❤️ ساقهٔ مغز و <span class="gtext">«گرهٔ حیات»</span></h2>
+  </div>
+  <div class="grid2">
+    <div class="card reveal">
+      <h3><span class="ic">🌉</span> ساقهٔ مغز؛ پل ارتباطی</h3>
+      <p>بخشِ <b class="hl">ساقه‌مانندِ زیر مغز</b> که <b>مغز و مخچه را به نخاع وصل می‌کند</b>، «ساقهٔ مغز» نام دارد.</p>
+      <div class="flow mt">
+        <span class="fnode"><span class="fi">🧠</span> مغز</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🌉</span> ساقهٔ مغز</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🪢</span> نخاع</span>
+      </div>
+      <span class="flow-label">مخچه هم از کنار مغز به ساقه وصل می‌شود</span>
+    </div>
+    <div class="card reveal" data-d="1" style="border-top:6px solid var(--pink)">
+      <h3><span class="ic">❤️‍🩹</span> بصل‌النخاع؛ گرهٔ حیات</h3>
+      <p>بخشی از ساقهٔ مغز که <b class="hl">در بالای نخاع</b> قرار دارد، «بصل‌النخاع» نام دارد. این بخش، <b class="hl-p">مرکز کنترل فعالیت‌های غیرارادی</b> مثل <b>تنفس، ضربان قلب و فشار خون</b> است.</p>
+      <p class="mb0">به دلیل اهمیتِ حیاتیِ آن، به بصل‌النخاع <b class="hl">«گرهٔ حیات»</b> می‌گویند (شکل ۶ کتاب).</p>
+    </div>
+  </div>
+  <div class="vitals">
+    <div class="vital reveal" data-d="1">
+      <div class="vt"><span class="heart">❤️</span> ضربان قلب</div>
+      <div class="ecg-box">
+        <svg viewBox="0 0 320 80" preserveAspectRatio="none">
+          <path class="ecg-base" d="M0 44 L46 44 L58 44 L66 16 L76 66 L84 44 L120 44 L132 44 L140 20 L150 64 L158 44 L196 44 L208 44 L216 14 L226 68 L234 44 L270 44 L282 44 L290 18 L300 62 L308 44 L320 44"/>
+          <path class="ecg-line" d="M0 44 L46 44 L58 44 L66 16 L76 66 L84 44 L120 44 L132 44 L140 20 L150 64 L158 44 L196 44 L208 44 L216 14 L226 68 L234 44 L270 44 L282 44 L290 18 L300 62 L308 44 L320 44"/>
+        </svg>
+      </div>
+      <div class="small">کنترل غیرارادی توسط بصل‌النخاع</div>
+    </div>
+    <div class="vital reveal" data-d="2">
+      <div class="vt">🫁 تنفس</div>
+      <div class="breath"><span>دَم/بازدم</span></div>
+      <div class="small mt">حتی وقتی فکرش را نمی‌کنید!</div>
+    </div>
+    <div class="vital reveal" data-d="3">
+      <div class="vt">🩸 فشار خون</div>
+      <div class="bp-bar mt" style="margin-top:26px"></div>
+      <div class="small mt">در محدودهٔ سالم نگه داشته می‌شود</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ۹: نخاع ============ -->
+<section class="sec" id="s9">
+  <div class="sec-head reveal">
+    <div class="sec-num">۹</div>
+    <h2>🪢 نخاع؛ <span class="gtext">بزرگراه پیام‌ها</span></h2>
+  </div>
+  <div class="grid2">
+    <div class="card reveal">
+      <h3><span class="ic">🪢</span> ساختار و وظایف نخاع</h3>
+      <p>نخاع، <b class="hl">شبیهٔ طنابی سفیدرنگ</b> است که <b>درون ستون مهره‌ها</b> قرار گرفته و <b class="hl-p">از بصل‌النخاع تا کمر امتداد دارد</b>.</p>
+      <ul style="padding-right:20px;margin:8px 0 0">
+        <li><b>وظیفهٔ ۱ — واسطه:</b> نخاع ارتباط مغز و اعصاب است؛ اطلاعات را از اندام‌ها به مغز و فرمان‌های مغز را به اندام‌ها می‌رساند.</li>
+        <li><b>وظیفهٔ ۲ — مرکز انعکاس:</b> نخاع، مرکز <b class="hl">برخی انعکاس‌ها مانند انعکاس زانو</b> است (شکل ۷ کتاب).</li>
+      </ul>
+    </div>
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">🧪</span> آزمایش انعکاس زانو — تعاملی!</h3>
+      <p class="small mb0">یادت هست؟ فعالیت کتاب: پا را روی پا بیندازید و با چکش پلاستیکی به زیر زانو ضربه بزنید. دکمه را بزن!</p>
+      <div class="reflex-stage mt" id="reflexStage">
+        <span class="reflex-msg">⚡ پیام به نخاع رفت و برگشت — پا کشیده شد! این انعکاس است!</span>
+        <span class="hammer">🔨</span>
+        <span class="leg">🦵</span>
+      </div>
+      <div class="center mt">
+        <button class="btn btn-grad" style="padding:11px 28px;font-size:14.5px" onclick="tapHammer()">🧯 ضربه بزن!</button>
+      </div>
+      <p class="small center mb0 mt">مرکز این انعکاس، نخاع است؛ به همین دلیل واکنش بدون رسیدن به مغز و بسیار سریع انجام می‌شود.</p>
+    </div>
+  </div>
+</section>
+<!-- ============ ۱۰: هشدار ایمنی ============ -->
+<section class="sec" id="s10">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۰</div>
+    <h2>⛑️ کادر <span class="gtext">هشدار ایمنی</span> کتاب</h2>
+  </div>
+  <div class="warn reveal">
+    <span class="wicon">⛑️🚗</span>
+    <h3 style="font-size:21px;margin:8px 0 10px">استفاده از کلاه ایمنی و کمربند</h3>
+    <p class="mb0">آسیب دیدن دستگاه عصبی، برخلاف بقیهٔ قسمت‌های بدن، <b class="hl-p">جبران‌ناپذیر</b> است؛ یعنی اگر به مغز یا نخاع آسیب جدی برسد، مثل پوست یا استخوان نمی‌توان آن را به‌راحتی ترمیم کرد. به همین دلیل <b class="hl">استفاده از کلاه ایمنی و کمربند برای جلوگیری از این آسیب بسیار مفید است</b>. پس هنگام دوچرخه‌سواری و موتورسواری کلاه ایمنی و در ماشین کمربند ایمنی را جدی بگیر!</p>
+  </div>
+</section>
+
+<!-- ============ ۱۱: آیا می‌دانید ============ -->
+<section class="sec" id="s11">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۱</div>
+    <h2>📊 کادر <span class="gtext">«آیا می‌دانید؟»</span></h2>
+  </div>
+  <p class="lead reveal">در کادر «آیا می‌دانید؟» کتاب آمده: چند جفت عصب به دستگاه عصبی مرکزی وصل است که بخشی از نخاع و بخشی از مغز منشأ می‌گیرند. با شمارنده‌ها ببین:</p>
+  <div class="grid3">
+    <div class="card center reveal">
+      <div class="stat-num" data-count="43">۰</div>
+      <b>جفت عصب در کل</b>
+      <p class="small mb0">به دستگاه عصبی مرکزی وصل است</p>
+    </div>
+    <div class="card center reveal" data-d="1">
+      <div class="stat-num" data-count="31">۰</div>
+      <b>جفت از نخاع</b>
+      <p class="small mb0">منشأ می‌گیرد</p>
+    </div>
+    <div class="card center reveal" data-d="2">
+      <div class="stat-num" data-count="12">۰</div>
+      <b>جفت از مغز</b>
+      <p class="small mb0">منشأ می‌گیرد</p>
+    </div>
+  </div>
+  <div class="card reveal mt" data-d="2">
+    <div class="donut-wrap">
+      <svg class="donut" width="210" height="210" viewBox="0 0 210 210" id="donut">
+        <circle cx="105" cy="105" r="80" stroke="#EDE9FE" stroke-width="34" fill="none"/>
+        <circle class="d1" id="d1" cx="105" cy="105" r="80" transform="rotate(-90 105 105)"/>
+        <circle class="d2" id="d2" cx="105" cy="105" r="80" transform="rotate(-90 105 105)"/>
+        <text class="dtxt" x="105" y="98" text-anchor="middle" font-size="40">۴۳</text>
+        <text x="105" y="128" text-anchor="middle" font-size="15" fill="#615A8C" font-weight="700">جفت عصب</text>
+      </svg>
+      <div>
+        <h3 style="justify-content:flex-start"><span class="ic">📊</span> سهم هر منشأ</h3>
+        <p><span class="legend-dot" style="background:#14B8A6"></span><b>۳۱ جفت عصب نخاعی</b> — حدود ۷۲٪</p>
+        <p class="mb0"><span class="legend-dot" style="background:#EC4899"></span><b>۱۲ جفت عصب مغزی</b> — حدود ۲۸٪</p>
+        <p class="small mt">این همان اعدادی است که در یادداشت‌های کلاسیِ کنار صفحهٔ ۳۲ کتاب هم نوشته شده: اعصاب مغزی ۱۲ جفت و اعصاب نخاعی ۳۱ جفت.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ۱۲: مرور سریع ============ -->
+<section class="sec" id="s12">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۲</div>
+    <h2>🗂️ مرور سریع: <span class="gtext">جدول طلایی</span></h2>
+  </div>
+  <p class="lead reveal">یک نگاه و همه‌چیز یادت می‌آید! این جدول را قبل از امتحان مرور کن.</p>
+  <div class="tbl-wrap reveal">
+    <table class="tbl">
+      <thead><tr><th>بخش / اندام</th><th>محل قرارگیری</th><th>وظیفهٔ اصلی</th></tr></thead>
+      <tbody>
+        <tr><td>🧠 نیمکره‌های مغز</td><td>درون جمجمه</td><td>دریافت اطلاعات حسی، صدور دستور، فکرکردن، حرف‌زدن، حل‌مسئله</td></tr>
+        <tr><td>🌸 قشر مغز</td><td>لایهٔ بیرونی نیمکره‌ها</td><td>مرکز بسیاری از اعمال ارادی بدن</td></tr>
+        <tr><td>🤸 مخچه</td><td>زیر و پشتِ مغز</td><td>حفظ تعادل بدن (با تمرین تقویت می‌شود)</td></tr>
+        <tr><td>🌉 ساقهٔ مغز</td><td>زیر مغز</td><td>اتصال مغز و مخچه به نخاع</td></tr>
+        <tr><td>❤️ بصل‌النخاع</td><td>بالای نخاع (بخشی از ساقه)</td><td>کنترل تنفس، ضربان قلب و فشار خون — «گرهٔ حیات»</td></tr>
+        <tr><td>🪢 نخاع</td><td>کانال ستون مهره‌ها؛ از بصل‌النخاع تا کمر</td><td>واسطهٔ مغز و اعصاب؛ مرکز انعکاس زانو</td></tr>
+        <tr><td>🕸️ اعصاب (بخش محیطی)</td><td>در سراسر بدن</td><td>انتقال پیام حسی به مرکز و پیام حرکتی به اندام‌ها</td></tr>
+        <tr><td>🥚 تالاموس</td><td>جلوی بطن سوم مغز (در برش طولی)</td><td>دو برجستگی تخم‌مرغی‌شکل که در تشریح مغز گوسفند دیده می‌شود</td></tr>
+        <tr><td>💾 حافظه</td><td>مراکز مغزی مربوط به حافظه</td><td>ذخیرهٔ اطلاعات؛ تبدیل کوتاه‌مدت به بلندمدت و فراخوانی</td></tr>
+        <tr><td>🔗 سیناپس</td><td>محل ارتباط نورون‌ها با هم</td><td>انتقال پیام بین نورون‌ها؛ تعدادش با یادگیری و محیط تغییر می‌کند</td></tr>
+        <tr><td>🧪 نوروترانسمیتر</td><td>در انتهای نورون‌ها</td><td>مواد شیمیایی ناقل پیام؛ کم یا زیاد شدنش بیماری‌زا است</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="reveal mt" style="font-size:20px">🎴 فلش‌کارت واژگان مهم <span class="small">(روی کارت کلیک کن!)</span></h3>
+  <div class="fcgrid mt" id="fcgrid"></div>
+</section>
+<!-- ============ ۱۳: نقشهٔ ذهنی کامل ============ -->
+<section class="sec" id="s13">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۳</div>
+    <h2>🗺️ نقشهٔ ذهنی <span class="gtext">کل فصل</span></h2>
+  </div>
+  <p class="lead reveal">نقشهٔ ذهنی، بهترین ابزار یادگیری و مرور است! کل فصل ۴ در یک نگاه — روی گره‌های شاخه‌دار کلیک کن تا باز و بسته شوند، اول از ریشه بخوان.</p>
+  <div class="mm-wrap reveal">
+    <div class="mm" id="masterMM">
+      <ul>
+        <li><span class="node n-root">⚡ تنظیم عصبی — فصل ۴ علوم هشتم</span>
+          <ul>
+            <li><span class="node n-l1 has-kids">⚖️ دو نوع تنظیم بدن</span>
+              <ul>
+                <li><span class="node n-l2">⚡ عصبی (موضوع این فصل)</span></li>
+                <li><span class="node n-l2">🧪 شیمیایی / هورمونی</span></li>
+              </ul>
+            </li>
+            <li><span class="node n-l1 has-kids">🧩 دستگاه عصبی = مرکزی + محیطی</span>
+              <ul>
+                <li><span class="node n-l2 has-kids">🎛️ بخش مرکزی (CNS): مغز + نخاع</span>
+                  <ul>
+                    <li><span class="node n-l3 has-kids">🧠 مغز (درون جمجمه)</span>
+                      <ul>
+                        <li><span class="node n-l3">نیمکره‌ها: اطلاعات حسی، دستورها، فکر و گفتار و حل مسئله</span></li>
+                        <li><span class="node n-l3">قشر مغز: بیرونی‌ترین لایه؛ اعمال ارادی؛ ۴ ناحیه (پیشانی، آهیانه، گیجگاهی، پس‌سری)</span></li>
+                        <li><span class="node n-l3">🤸 مخچه: تعادل (پیام از چشم، گوش، پوست)</span></li>
+                        <li><span class="node n-l3">🌉 ساقهٔ مغز: اتصال به نخاع</span></li>
+                        <li><span class="node n-l3">❤️ بصل‌النخاع: تنفس، ضربان قلب، فشار خون = گرهٔ حیات</span></li>
+                      </ul>
+                    </li>
+                    <li><span class="node n-l3">🪢 نخاع (درون ستون مهره‌ها، تا کمر)</span></li>
+                    <li><span class="node n-l3">نقش: واپایش فعالیت‌های ارادی و غیرارادی + مرکز انعکاس زانو</span></li>
+                  </ul>
+                </li>
+                <li><span class="node n-l2 has-kids">🕸️ بخش محیطی (PNS): اعصاب</span>
+                  <ul>
+                    <li><span class="node n-l3">۳۱ جفت عصب نخاعی + ۱۲ جفت عصب مغزی</span></li>
+                    <li><span class="node n-l3">👁️ پیام حسی: از اندام‌ها به مرکز</span></li>
+                    <li><span class="node n-l3">💪 پیام حرکتی: از مرکز به ماهیچه‌ها</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><span class="node n-l1 has-kids">🏃 انواع فعالیت</span>
+              <ul>
+                <li><span class="node n-l2">🖊️ ارادی: با خواست ما (برداشتن مداد)</span></li>
+                <li><span class="node n-l2">❤️ غیرارادی: همیشه و متناسب با نیاز (ضربان قلب، تنفس)</span></li>
+                <li><span class="node n-l2">⚡ بازتابی/انعکاسی: سریع، بدون فکر (کتری داغ، انعکاس زانو، پلک‌زدن، عطسه، سرفه)</span></li>
+              </ul>
+            </li>
+            <li><span class="node n-l1 has-kids">⛑️ نکتهٔ ایمنی</span>
+              <ul>
+                <li><span class="node n-l2">آسیب دستگاه عصبی جبران‌ناپذیر است ← کلاه ایمنی و کمربند!</span></li>
+              </ul>
+            </li>
+            <li><span class="node n-l1 has-kids">🧬 مغز پویا — پیوست‌های کتاب (ص ۴۴ تا ۵۳)</span>
+              <ul>
+                <li><span class="node n-l2 has-kids">🔬 آزمایش کنید: تشریح مغز گوسفند</span>
+                  <ul>
+                    <li><span class="node n-l3">آماده‌سازی: فرمالین ۵ تا ۱۰٪ + شستن با آب + دستکش جراحی</span></li>
+                    <li><span class="node n-l3">سطح پشتی: نیمکره‌های مخ، مخچه، کرمینه، بصل‌النخاع، نخاع</span></li>
+                    <li><span class="node n-l3">سطح شکمی: لوب‌های بویایی، اعصاب بینایی، پل مغزی، بصل‌النخاع</span></li>
+                    <li><span class="node n-l3">درونی: جسم پینه‌ای، بطن سوم، تالاموس، غدهٔ پینه‌آل، برجستگی‌های چهارگانه، مادهٔ سفید و خاکستری</span></li>
+                  </ul>
+                </li>
+                <li><span class="node n-l2 has-kids">🧠 حافظه</span>
+                  <ul>
+                    <li><span class="node n-l3">اطلاعات اول کوتاه‌مدت و موقتی ← تثبیت ← بلندمدت ← فراخوانی</span></li>
+                    <li><span class="node n-l3">بیمار صرعی: قسمتی از مغز مسئول تبدیل کوتاه‌مدت به بلندمدت است</span></li>
+                  </ul>
+                </li>
+                <li><span class="node n-l2 has-kids">🔄 تغییرپذیری سیستم عصبی</span>
+                  <ul>
+                    <li><span class="node n-l3">۱۰۰ میلیارد نورون؛ ارتباط‌ها = سیناپس (متغیر و قابل تغییر)</span></li>
+                    <li><span class="node n-l3">در کودکی بیشتر است؛ با سن کم می‌شود اما تا پایان عمر می‌ماند</span></li>
+                    <li><span class="node n-l3">آزمایش موش: محیط غنی ← قشر خاکستری ضخیم‌تر</span></li>
+                    <li><span class="node n-l3">یادگیری ← ارتباط‌های نورونی جدید؛ رشد مناطق مربوط به مهارت</span></li>
+                    <li><span class="node n-l3">ترمیم: نورون‌ها تکثیر نمی‌شوند اما نورون‌های سالم جبران نسبی می‌کنند</span></li>
+                  </ul>
+                </li>
+                <li><span class="node n-l2 has-kids">🏥 بیماری‌های سیستم عصبی</span>
+                  <ul>
+                    <li><span class="node n-l3">کم یا زیاد شدن نوروترانسمیترها ← بیماری</span></li>
+                    <li><span class="node n-l3">مرگ نورون‌ها در مغز یا نخاع ← بیماری</span></li>
+                    <li><span class="node n-l3">اختلال سلول‌های پشتیبان ← ام‌اس</span></li>
+                  </ul>
+                </li>
+                <li><span class="node n-l2 has-kids">⚠️ اعتیاد و وابستگی</span>
+                  <ul>
+                    <li><span class="node n-l3">بیماری مزمن سیستم عصبی؛ تغییر مدارهای پاداش، انگیزش و حافظه</span></li>
+                    <li><span class="node n-l3">فعالیت مغزی فرد مصرف‌کننده بسیار پایین است؛ درمان قطعی هنوز ندارد</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p class="small center mb0">💡 این نقشه را برای مرورِ شبِ امتحان می‌توانی خط‌به‌خط روی کاغذ بازسازی کنی!</p>
+  </div>
+</section>
+
+<!-- ============ ۱۴: آزمایش کنید — تشریح مغز گوسفند ============ -->
+<section class="sec" id="s14">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۴</div>
+    <h2>🔬 آزمایش کنید: <span class="gtext">تشریح مغز گوسفند</span></h2>
+  </div>
+  <p class="lead reveal">صفحات ۴۴ و ۴۵ کتاب یک آزمایش عملی دارد: تشریح مغز گوسفند! این بخش، روش کامل کتاب را قدم‌به‌قدم توضیح می‌دهد. با تب‌ها جلو برو: <span class="extra">کتاب، صفحات ۴۴ و ۴۵</span></p>
+
+  <div class="tabs reveal">
+    <button class="tab on" data-tab="d1">🧼 آماده‌سازی</button>
+    <button class="tab" data-tab="d2">👀 مشاهدهٔ ظاهری</button>
+    <button class="tab" data-tab="d3">⬆️ سطح پشتی</button>
+    <button class="tab" data-tab="d4">⬇️ سطح شکمی</button>
+    <button class="tab" data-tab="d5">🔪 قسمت‌های درونی</button>
+  </div>
+
+  <div class="tabpane on" id="d1">
+    <div class="card">
+      <h3><span class="ic">🧼</span> گام صفر: آماده‌سازی مغز</h3>
+      <p>یک <b class="hl">مغز گوسفند سالم و کامل</b> تهیه کن؛ سعی کن له‌نشده باشد. برای اینکه مغز <b>سفت‌تر شود و راحت‌تر بتوانی با آن کار کنی</b>، بهتر است چند روز در <b class="hl-p">محلول فرمالین ۵ تا ۱۰ درصد</b> بماند.</p>
+      <p class="mb0">قبل از شروع کار، مغز را <b class="hl">چند ساعت در آب بگذار</b> تا فرمالین روی آن شسته شود و بوی آن اذیتت نکند. هنگام تشریح هم حتماً <b class="hl-p">دستکش مخصوص جراحی</b> استفاده کن تا فرمالین به دستت آسیب نرساند؛ سپس طبق روش کتاب جلو برو و <b class="hl">مشاهدات خود را در هر مرحله یادداشت کن</b>! 📝</p>
+      <div class="grid3 mt">
+        <div class="card center" style="box-shadow:none;border:2px solid #A5F3FC"><div style="font-size:40px">🫙</div><b>فرمالین ۵ تا ۱۰٪</b><div class="small">چند روز — سفت‌شدن مغز</div></div>
+        <div class="card center" style="box-shadow:none;border:2px solid #C7F9E5"><div style="font-size:40px">💧</div><b>شستن با آب</b><div class="small">چند ساعت — از بین رفتن بوی فرمالین</div></div>
+        <div class="card center" style="box-shadow:none;border:2px solid #FDE68A"><div style="font-size:40px">🧤</div><b>دستکش جراحی</b><div class="small">محافظت از دست در برابر فرمالین</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpane" id="d2">
+    <div class="card">
+      <h3><span class="ic">👀</span> مشاهدۀ ظاهر مغز</h3>
+      <p>شکل ظاهری مغز را بررسی کن: <b class="hl">پردۀ پوشانندۀ مغز</b> و <b class="hl-p">شیارهای سطحی و عمقی</b> آن را با دقت مشاهده کن و یادداشت کن.</p>
+      <p class="mb0 small">💡 <span class="extra">اطلاعات بیشتر</span> پردۀ نازکی تمام مغز را پوشانده است؛ همین پردۀ نازک و قرمزرنگ را در برش‌های بعدی هم دوباره می‌بینی. شیارها همان چین‌وچرخ‌های سطح مغزند که به مخِ مغز ظاهر معروفش را داده‌اند.</p>
+    </div>
+  </div>
+
+  <div class="tabpane" id="d3">
+    <div class="card">
+      <h3><span class="ic">⬆️</span> مشاهدۀ سطح پشتی مغز</h3>
+      <p><b class="hl">کف مغز را در دست بگیر</b> و سطح ظاهری آن را خوب بررسی کن. این قسمت‌ها را شناسایی کن:</p>
+      <div class="chip-row">
+        <span>🧠 دو نیمکرۀ مخ</span>
+        <span>🤸 مخچه</span>
+        <span>🧵 کرمینه</span>
+        <span>❤️ بصل‌النخاع</span>
+        <span>🪢 قسمتی از نخاع که باقی مانده</span>
+      </div>
+      <p class="mb0 small">✍️ این مشاهده را یادداشت کن: هر قسمت کجا قرار دارد؟ نسبت اندازۀ مخ و مخچه چطور است؟</p>
+    </div>
+  </div>
+
+  <div class="tabpane" id="d4">
+    <div class="card">
+      <h3><span class="ic">⬇️</span> مشاهدۀ سطح شکمی مغز</h3>
+      <p>سطح شکمی را <b class="hl">به دقت بررسی کن</b> و سعی کن این قسمت‌ها را تشخیص دهی:</p>
+      <div class="chip-row">
+        <span>👃 لوب‌های بویایی</span>
+        <span>👁️ اعصاب بینایی</span>
+        <span>🌉 پل مغزی</span>
+        <span>❤️ بصل‌النخاع</span>
+      </div>
+      <p class="mb0 small">💡 <span class="extra">اطلاعات بیشتر</span> سطح شکمی جای دیدنی است: اعصاب بینایی به‌شکل ضربدری از هم می‌گذرند، لوب‌های بویایی کوچک در پایینِ مغز قرار دارند و پل مغزی، برجستگی پهن و معروف ساقۀ مغز است.</p>
+    </div>
+  </div>
+
+  <div class="tabpane" id="d5">
+    <div class="card">
+      <h3><span class="ic">🔪</span> مشاهدۀ قسمت‌های درونی مغز</h3>
+      <p>حالا جذاب‌ترین بخش آزمایش: <b>برش طولی مغز!</b> مراحل را به‌ترتیب و با حوصله انجام بده:</p>
+      <div class="mt" id="dissectSteps">
+        <div class="step"><span class="snum">۱</span><div>مغز را به‌صورت <b>سطح شکمی</b> در سینی تشریح قرار بده</div></div>
+        <div class="step"><span class="snum">۲</span><div>دو نیمکرۀ مخ را <b>با دست کمی از هم جدا کن</b> و بافت را به‌آرامی و کم‌کم باز کن تا به یک <b class="hl">بافت سفیدرنگ</b> برسی <span class="extra">پاسخ سؤال کتاب: جسم پینه‌ای</span></div></div>
+        <div class="step"><span class="snum">۳</span><div>بافت سفید را از وسط <b>برش بزن</b> و دو نیمکره را از هم جدا کن؛ آن را به‌آرامی <b>مثلث تا کن</b> تا کاملاً دیده شود</div></div>
+        <div class="step"><span class="snum">۴</span><div>با نوک چاقو، <b>مثلث مغزی را از وسط برش بزن</b> و آن را به دو نیمه تقسیم کن</div></div>
+        <div class="step"><span class="snum">۵</span><div>زیر آن <b class="hl-p">پرده‌ای نازک و قرمزرنگ</b> است — این‌جا محل <b>بطن سوم مغز</b> است</div></div>
+        <div class="step"><span class="snum">۶</span><div>در <b>جلوی</b> محوطۀ بطن سوم، <b class="hl">دو برجستگی تخم‌مرغی‌شکل = تالاموس</b> 🥚 را پیدا کن</div></div>
+        <div class="step"><span class="snum">۷</span><div>در <b>عقبِ</b> بطن سوم، <b class="hl-p">غدۀ پینه‌آل</b> و <b class="hl-p">برجستگی‌های چهارگانه</b> را پیدا کن</div></div>
+        <div class="step"><span class="snum">۸</span><div>برش وسط مغز را <b>از جلو تا عقب ادامه بده</b> تا دو قسمت مغز کاملاً از هم جدا شوند</div></div>
+        <div class="step"><span class="snum">۹</span><div>همۀ قسمت‌ها را با دقت ببین: به <b class="hl">نحوۀ قرارگیری مادۀ سفید و خاکستری</b> و <b class="hl-p">شکل و عمق شیارها در مخ و مخچه</b> توجه کن ✅</div></div>
+      </div>
+      <div class="center mt">
+        <button class="btn btn-grad" style="padding:11px 26px;font-size:14px" onclick="playDissect()">▶ پخش مرحله‌به‌مرحله</button>
+      </div>
+      <div class="mt" style="background:#F0FDFF;border:1.5px solid #67E8F9;border-radius:16px;padding:14px 18px">
+        <b>🌐 برای یادگیری بهتر:</b> کتاب سایت زیر را معرفی کرده است (نمونه‌های تصویری تشریح مغز):<br>
+        <a href="http://cal.vet.upenn.edu/projects/neurology/lab2/lab2.htm#" target="_blank" rel="noopener" style="color:var(--vio);font-weight:800;direction:ltr;display:inline-block;word-break:break-all">cal.vet.upenn.edu/projects/neurology/lab2</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card reveal mt" data-d="1" style="border:2px solid #FDBA74;background:linear-gradient(135deg,#FFF7ED,#FEF2F2)">
+    <h3><span class="ic">🧷</span> خلاصۀ اسم‌هایی که باید بلد باشی</h3>
+    <p class="mb0 small"><b>از تشریح:</b> پردۀ پوشاننده، شیارها، جسم پینه‌ای (بافت سفید وسطِ دو نیمکره)، بطن سوم، تالاموس، غدۀ پینه‌آل، برجستگی‌های چهارگانه، مادۀ سفید و خاکستری. <b>یادآوری قسمت‌های قبل:</b> نیمکره‌های مخ، مخچه، کرمینه، بصل‌النخاع، پل مغزی، لوب‌های بویایی، اعصاب بینایی.</p>
+  </div>
+</section>
+
+<!-- ============ ۱۵: حافظه ============ -->
+<section class="sec" id="s15">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۵</div>
+    <h2>🧠 حافظه؛ <span class="gtext">یکی از قابلیت‌های مهم مغز انسان</span></h2>
+  </div>
+  <p class="lead reveal">کادر «بیشتر بدانید» کتاب ماجرای یک کشف علمی جالب را تعریف می‌کند؛ خوب بخوان، چون از سؤال‌های همیشگی امتحان است! <span class="extra">کتاب، صفحۀ ۴۶</span></p>
+
+  <div class="card reveal">
+    <h3><span class="ic">🏥</span> داستان کشف: بیمار مبتلا به صرع شدید</h3>
+    <p>بسیاری از اکتشافات علمی در اثر یک اتفاق به دست آمده‌اند؛ شناخت مراکز مغزی مربوط به حافظه هم مثالی از همین اکتشافات است. روزی پزشکان تصمیم گرفتند برای درمان بیماری مبتلا به <b class="hl">صرع شدید</b> (نوعی بیماری که باعث <b>تشنج فرد</b> می‌شود)، قسمتی از مغز او را بردارند.</p>
+    <p>بعد از عمل اتفاق جالبی افتاد: بیمار وقایعی را که در اطرافش رخ می‌داد، <b class="hl-p">فقط برای چند دقیقه به یاد می‌آورد</b> و بعد آنها را کاملاً فراموش می‌کرد! مثلاً اگر با او حرف می‌زدی و خودت را معرفی می‌کردی، بعد از چند دقیقه آنها را از یاد می‌برد و دیگر تو را نمی‌شناخت. این در حالی بود که او <b class="hl">تمام خاطرات گذشته‌اش را که قبل از عمل جراحی اتفاق افتاده بودند، به‌خوبی به یاد می‌آورد</b>.</p>
+    <p class="mb0">🎯 <b>نتیجۀ پزشکان:</b> قسمتی از مغز که برداشته شده است، <b class="hl">مسئول تبدیل حافظۀ کوتاه‌مدت به بلندمدت</b> است.</p>
+  </div>
+
+  <div class="card reveal mt" data-d="1">
+    <h3><span class="ic">💾</span> سفر اطلاعات: از کوتاه‌مدت تا بلندمدت</h3>
+    <p>اطلاعات ابتدا به‌صورت <b class="hl">کوتاه‌مدت و موقتی</b> در مغز ما ذخیره می‌شوند؛ بعد از مدتی می‌توانند <b class="hl-p">تثبیت</b> شوند و به <b>حافظۀ بلندمدت</b> تبدیل گردند. مغز این توانایی را دارد که این اطلاعات را <b class="hl">دوباره فراخوانی کند و به یاد بیاورد</b>.</p>
+    <div class="flow">
+      <span class="fnode"><span class="fi">📥</span> اطلاعات</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">⏳</span> کوتاه‌مدت (موقتی)</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">🔒</span> تثبیت</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">🗄️</span> بلندمدت</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">💭</span> فراخوانی</span>
+    </div>
+    <span class="flow-label">مسیر حافظه بر اساس کادر «بیشتر بدانید» کتاب</span>
+  </div>
+
+  <div class="grid2 mt">
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">📚</span> چرا این مبحث مهم است؟</h3>
+      <p class="mb0">حافظه یکی از مباحث <b class="hl-p">مهم و گسترده در عصب‌شناسی</b> است. بسیاری از توصیه‌هایی که برای <b class="hl">یادگیری بهتر و تقویت حافظه</b> به تو می‌شود، ریشه در <b>مکانیزم‌های عصبی مغز</b> در همین دو فرایند دارد! (در بخش «فوت‌های کوزه‌گری» نتیجه‌اش را می‌بینی ⬇️)</p>
+    </div>
+    <div class="card reveal" data-d="2" style="background:#FFFBEB;border:2px solid #FDE68A">
+      <h3><span class="ic">📝</span> نکتۀ امتحانی</h3>
+      <p class="mb0 small">اگر سؤال شد «بیمار صرعی بعد از عمل چه مشکلی داشت؟» بگو: <b>خاطرات قبل از عمل سالم بود، ولی اطلاعات جدید فقط چند دقیقه در ذهنش می‌ماند</b>؛ چون قسمتی از مغز که <b>تبدیل حافظۀ کوتاه‌مدت به بلندمدت</b> را انجام می‌دهد، برداشته شده بود.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ۱۶: فوت‌های کوزه‌گری ============ -->
+<section class="sec" id="s16">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۶</div>
+    <h2>📚 فوت‌های کوزه‌گری <span class="gtext">در درس خواندن</span></h2>
+  </div>
+  <p class="lead reveal">کتاب با استفاده از همان چیزی که از مغز می‌دانیم، ۸ توصیۀ طلایی برای درس خواندن داده است. روی هر کارت کلیک کن تا توضیح کاملش را ببینی! <span class="extra">کتاب، صفحۀ ۴۷</span></p>
+  <div class="fcgrid reveal" id="tipsGrid"></div>
+  <div class="card reveal mt center" data-d="1" style="background:linear-gradient(135deg,#F5F1FF,#FDF2F8)">
+    <p class="mb0">🔬 <b>راز علمی فوت‌ها:</b> مرورِ مرتب (فوت ۴)، ساختن ربط و داستان (فوت ۵) و خلاصه‌نویسی و توضیح‌دادن (فوت ۷) همه با <b class="hl">ساخته‌شدن ارتباط‌های جدید بین نورون‌ها</b> و <b class="hl-p">تبدیل حافظۀ کوتاه‌مدت به بلندمدت</b> ارتباط مستقیم دارند!</p>
+  </div>
+</section>
+
+<!-- ============ ۱۷: تغییرپذیری سیستم عصبی ============ -->
+<section class="sec" id="s17">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۷</div>
+    <h2>🔄 تغییرپذیری <span class="gtext">سیستم عصبی</span></h2>
+  </div>
+  <p class="lead reveal">مغز بدون شک اعجاب‌انگیزترین عضو بدن است؛ اما آیا یک ماشینِ ثابت و برنامه‌ریزی‌شده است؟ کتاب می‌گوید: نه! <span class="extra">کتاب، صفحات ۴۸ تا ۵۱</span></p>
+
+  <div class="grid3">
+    <div class="card center reveal">
+      <div class="stat-num" data-count="100">۰</div>
+      <b>میلیارد نورون</b>
+      <p class="small mb0">سازندگان مغز انسان</p>
+    </div>
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">🌿</span> نورون‌ها شبکه می‌سازند</h3>
+      <p class="small mb0">هر نورون از طریق <b class="hl">آکسون (آمینه)</b> و <b class="hl-p">دندریت‌های (دارینه)</b> خود با تعدادی از نورون‌های دیگر ارتباط برقرار کرده و اعمال خاصی از بدن را کنترل می‌کند.</p>
+    </div>
+    <div class="card reveal" data-d="2">
+      <h3><span class="ic">❓</span> سؤال کتاب</h3>
+      <p class="small mb0">آیا تعداد این ارتباطات در افراد مختلف و یا در یک فرد از بدو تولد تا کهنسالی <b>یکسان و ثابت</b> است؟ <b class="hl-p">پاسخ: نه!</b> مغز از نظر ساختار سلولی <b class="hl">انعطاف‌پذیر</b> است 🔄</p>
+    </div>
+  </div>
+
+  <div class="brain-wrap mt">
+    <div class="brain-box reveal">
+      <h3 style="margin:2px 8px 8px"><span class="ic">🕸️</span> نورون‌ها و سیناپس — روی قسمت‌ها بزن!</h3>
+      <svg id="neuronsvg" viewBox="0 0 720 300" role="img" aria-label="نمودار دو نورون و سیناپس">
+        <ellipse cx="360" cy="160" rx="330" ry="130" fill="#F7F3FF" opacity=".5"/>
+        <!-- نورون بعدی (چپ) -->
+        <g class="npart" data-key="next">
+          <circle cx="100" cy="152" r="32" fill="#99F6E4" stroke="#2DD4BF" stroke-width="4"/>
+          <path d="M132 150 C160 138 180 118 198 98" stroke="#2DD4BF" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M132 152 C160 152 180 152 205 152" stroke="#2DD4BF" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M132 156 C160 168 180 188 200 208" stroke="#2DD4BF" stroke-width="7" fill="none" stroke-linecap="round"/>
+        </g>
+        <!-- سیناپس -->
+        <g class="npart" data-key="syn">
+          <circle cx="233" cy="151" r="17" fill="rgba(236,72,153,.16)"/>
+          <text x="233" y="160" text-anchor="middle" font-size="20">✨</text>
+          <line x1="233" y1="128" x2="233" y2="96" stroke="#F59E0B" stroke-width="2.5" stroke-dasharray="5 5"/>
+        </g>
+        <!-- پایانه‌های آکسون -->
+        <g class="npart" data-key="term">
+          <path d="M330 150 C300 140 280 125 258 111" stroke="#F472B6" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+          <circle cx="254" cy="109" r="9.5" fill="#F472B6"/>
+          <path d="M330 150 C298 152 278 154 256 153" stroke="#F472B6" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+          <circle cx="251" cy="153" r="9.5" fill="#F472B6"/>
+          <path d="M330 150 C302 165 286 180 265 195" stroke="#F472B6" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+          <circle cx="262" cy="197" r="9.5" fill="#F472B6"/>
+        </g>
+        <!-- آکسون -->
+        <g class="npart" data-key="axon">
+          <path d="M554 150 C510 138 488 163 444 152 C400 141 380 159 332 150" stroke="#EC4899" stroke-width="11" fill="none" stroke-linecap="round"/>
+          <circle r="7" fill="#FDE68A" stroke="#F59E0B" stroke-width="2">
+            <animateMotion dur="2.4s" repeatCount="indefinite" path="M554 150 C510 138 488 163 444 152 C400 141 380 159 332 150"/>
+          </circle>
+        </g>
+        <!-- جسم سلولی -->
+        <g class="npart" data-key="soma">
+          <circle cx="592" cy="150" r="37" fill="#A78BFA" stroke="#7C3AED" stroke-width="4.5"/>
+          <circle cx="592" cy="150" r="13" fill="#4C1D95"/>
+        </g>
+        <!-- دندریت‌ها -->
+        <g class="npart" data-key="dend">
+          <path d="M617 123 C640 95 652 76 682 56" stroke="#A78BFA" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M628 141 C662 132 682 130 703 126" stroke="#A78BFA" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M630 166 C662 183 682 198 705 222" stroke="#A78BFA" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M606 186 C622 214 616 240 636 264" stroke="#A78BFA" stroke-width="7" fill="none" stroke-linecap="round"/>
+        </g>
+        <!-- برچسب‌ها -->
+        <text x="708" y="34" text-anchor="end" font-size="15">دندریت‌ها (دارینه)</text>
+        <text x="443" y="112" text-anchor="middle" font-size="15">آکسون (آمینه)</text>
+        <text x="592" y="222" text-anchor="middle" font-size="15">جسم سلولی</text>
+        <text x="262" y="252" text-anchor="middle" font-size="15">پایانه‌های آکسون</text>
+        <text x="233" y="86" text-anchor="middle" font-size="15">سیناپس</text>
+        <text x="100" y="216" text-anchor="middle" font-size="15">نورون بعدی</text>
+      </svg>
+      <div class="blegend" id="nrlegend"></div>
+    </div>
+    <div class="binfo reveal" data-d="1" id="nrinfo" style="--k:#7C3AED"></div>
+  </div>
+
+  <div class="card reveal mt">
+    <h3><span class="ic">🎚️</span> آزمایشگاه: تغییرپذیری از تولد تا کهنسالی</h3>
+    <p class="small mb0">کتاب: قابلیت تغییرپذیری مغز در <b>بدو تولد و سال‌های اولیۀ زندگی بسیار بالاست</b> و با افزایش سن <b>کاهش پیدا می‌کند</b>؛ اگرچه <b class="hl">تا پایان عمر وجود خواهد داشت</b>. علاوه بر عوامل ژنتیکی، <b class="hl-p">محیطی که فرد در آن زندگی می‌کند و فعالیت‌های او</b> در این تغییرات سهم عمده‌ای دارند. سن را جابه‌جا کن و ببین:</p>
+    <div class="age-lab mt">
+      <input type="range" id="ageRange" min="0" max="100" value="0" step="5" aria-label="سن">
+      <div class="plast-track"><i id="plastBar" style="width:100%"></i></div>
+      <div class="center mt"><b id="ageOut"></b></div>
+    </div>
+  </div>
+
+  <div class="tabs mt reveal">
+    <button class="tab on" data-tab="p1">🐭 آزمایش موش‌ها</button>
+    <button class="tab" data-tab="p2">📖 یادگیری</button>
+    <button class="tab" data-tab="p3">🩹 ترمیم آسیب‌ها</button>
+  </div>
+
+  <div class="tabpane on" id="p1">
+    <div class="card">
+      <h3><span class="ic">🐭</span> آزمایش کلاسی: اثر محیط بر مغز <span class="extra">خود را بیازمایید، صفحۀ ۴۹</span></h3>
+      <p><b>آزمایش:</b> یک موش آزمایشگاهی را در یک <b class="hl">قفس خالی</b> و موش دیگر را در قفسی <b class="hl-p">مملو از اسباب‌بازی مخصوص حیوان آزمایشگاهی</b>، به مدت چند روز نگه می‌داریم؛ سپس مغز دو حیوان را بررسی می‌کنیم.</p>
+      <div class="grid2 mt">
+        <div class="cage empty reveal" data-d="1">
+          <div style="font-size:42px">🐭📦</div>
+          <b>قفس خالی</b>
+          <div class="small">بدون اسباب‌بازی و محرک</div>
+          <div class="mt" style="text-align:right">
+            <div class="small" style="font-weight:800">ضخامت بخش خاکستری مخ</div>
+            <div class="plast-track" style="margin-top:6px"><i style="width:38%;background:linear-gradient(90deg,#FBBF24,#F59E0B)"></i></div>
+            <span class="small">کم‌تر</span>
+          </div>
+        </div>
+        <div class="cage rich reveal" data-d="2">
+          <div style="font-size:42px">🐭🧸🎲</div>
+          <b>قفس پر از اسباب‌بازی</b>
+          <div class="small">محیط غنی و پرتحرک</div>
+          <div class="mt" style="text-align:right">
+            <div class="small" style="font-weight:800">ضخامت بخش خاکستری مخ</div>
+            <div class="plast-track" style="margin-top:6px"><i style="width:88%;background:linear-gradient(90deg,#34D399,#10B981)"></i></div>
+            <span class="small">بیشتر ✅</span>
+          </div>
+        </div>
+      </div>
+      <p class="mt"><b>نتیجه:</b> ضخامت <b class="hl">بخش خاکستری مخ</b> حیوانی که در قفس پر از اسباب‌بازی نگهداری شده بود، <b class="hl-p">بیشتر</b> از حیوانی بود که در قفسۀ خالی قرار گرفته بود.</p>
+      <div class="mt" style="background:#F5F3FF;border:1.5px solid var(--vio2);border-radius:16px;padding:14px 18px">
+        <b>🤔 خود را بیازمایید:</b> آیا می‌توانی مثال‌هایی از اثر محیط بر عملکرد مغز بزنی و دربارهٔ آنها توضیح دهی؟ (مثلاً اثر بازی‌های فکری، موسیقی، ورزش یا برعکس فضای خالی و بی‌تحرکی...)
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpane" id="p2">
+    <div class="card">
+      <h3><span class="ic">📖</span> یادگیری؛ نمونه‌ای از تغییرپذیری مغز <span class="extra">کتاب، صفحۀ ۵۰</span></h3>
+      <p>یادگیری در نتیجۀ <b class="hl">تجربیات محیطی و تمرین و ممارست</b>، سبب <b class="hl-p">تغییر ارتباط بین نورون‌ها</b> در مغز و <b>شکل‌گیری ارتباط‌های جدید</b> می‌شود.</p>
+      <p class="mb0">هنگامی که مهارت‌های خاصی مانند <b>نقاشی، رانندگی و...</b> را یاد می‌گیری، <b class="hl">مناطقی از مغزت که با این مهارت‌ها در ارتباط هستند، رشد می‌کنند و بزرگ‌تر می‌شوند</b>. یادت هست گفتم بندبازها و ژیمناست‌کارها مخچه‌شان را با تمرین تقویت می‌کنند؟ دقیقاً همین ماجراست! 💪</p>
+      <div class="flow mt">
+        <span class="fnode"><span class="fi">🏋️</span> تمرین و تجربه</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🕸️</span> ارتباط‌های نورونی جدید</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🧠</span> رشد مناطق مربوطه</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🎯</span> مهارت</span>
+      </div>
+      <p class="mt" style="font-weight:900">سه سؤال کتاب را باز کن و جوابش را ببین:</p>
+      <div class="mt" style="display:grid;gap:10px">
+        <div class="rev" onclick="this.classList.toggle('open')"><div class="rev-h"><span>❓ چرا هر فردی زبان مادری (نخستین زبان کودکی) را بهتر از هر زبان دیگری می‌داند؟</span><span class="chev">▾</span></div>
+          <div class="rev-b small">چون آن زبان در سال‌های اولیۀ زندگی و در اوجِ تغییرپذیری مغز آموخته شده و ارتباط‌های نورونی مربوط به آن بسیار قوی و تثبیت‌شده است.</div></div>
+        <div class="rev" onclick="this.classList.toggle('open')"><div class="rev-h"><span>❓ چرا افرادی که از کودکی در محیط‌های دوزبانه یا چندزبانه‌اند، در فراگیری زبان‌ها موفق‌ترند؟</span><span class="chev">▾</span></div>
+          <div class="rev-b small">چون مغز آنها از کودکی، در اثر قرارگرفتن در محیط چندزبانه، ارتباط‌های نورونی مربوط به زبان‌آموزی را بیشتر و قوی‌تر ساخته است.</div></div>
+        <div class="rev" onclick="this.classList.toggle('open')"><div class="rev-h"><span>❓ ممارست و تمرین چگونه سرعت و قابلیت یادگیری مهارت‌هایی مثل رانندگی را تحت تأثیر قرار می‌دهد؟</span><span class="chev">▾</span></div>
+          <div class="rev-b small">تمرین مکرر، ارتباط‌های بین‌نورونی (سیناپس‌ها) را بیشتر و قوی‌تر می‌کند؛ در نتیجه همان مهارت در دفعات بعد سریع‌تر و راحت‌تر انجام می‌شود.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabpane" id="p3">
+    <div class="card">
+      <h3><span class="ic">🩹</span> ترمیم آسیب‌ها در بافت مغزی <span class="extra">کتاب، صفحۀ ۵۱</span></h3>
+      <p>جبران عملکردهای ازدست‌رفته در اثر صدمۀ سیستم عصبی مرکزی، <b class="hl-p">یک نمونۀ دیگر از قابلیت تغییرپذیری</b> است. نکتۀ کلیدی: نورون‌ها سلول‌های <b class="hl">تمایزیافته‌ای</b> هستند که <b>دیگر تکثیر نمی‌شوند</b> و قابلیت جایگزینی سلول‌های ازدست‌رفته را ندارند؛ اما <b class="hl-p">تغییرپذیری نقش مهمی در بهبود نسبی پس از آسیب‌های مغزی ایفا می‌کند</b>.</p>
+      <div class="card mt" style="box-shadow:none;border:2px solid #FCA5A5;background:#FFF7ED">
+        <b>🧠 مثال کتاب: سکتۀ مغزی و دست چپ</b>
+        <p class="small mb0 mt">در فردی که در اثر سکتۀ مغزی، ناحیۀ مسئول کنترل حرکات <b>دست چپ</b>اش آسیب می‌بیند، در اوّلین روزهای پس از سکته، حرکات این دست مختل می‌شود. در دورۀ توانبخشی، پزشکان به این فرد توصیه می‌کنند که تا حد امکان <b class="hl">از دست چپ خود استفاده کند</b>. در این حالت <b class="hl-p">نورون‌های سالم باقی‌مانده با ایجاد ارتباطات جدید</b>، به جبران عملکرد نورون‌های آسیب‌دیده می‌پردازند.</p>
+      </div>
+      <div class="flow mt">
+        <span class="fnode"><span class="fi">🩺</span> آسیب (سکته)</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🏋️</span> تمرین و استفادهٔ دوباره</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">🕸️</span> ارتباط‌های جدید نورون‌های سالم</span>
+        <span class="wire"></span>
+        <span class="fnode"><span class="fi">💪</span> بهبود نسبی عملکرد</span>
+      </div>
+      <div class="mt" style="background:#F0FDFF;border:1.5px solid #67E8F9;border-radius:16px;padding:14px 18px">
+        <b>🔗 ارتباط با کادر ایمنی کتاب:</b> بهبود پس از آسیب مغزی <b>«نسبی»</b> است، نه کامل؛ برای همین کلاه ایمنی و کمربند از همه‌چیز مهم‌ترند!
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ۱۸: بیماری‌های سیستم عصبی ============ -->
+<section class="sec" id="s18">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۸</div>
+    <h2>🏥 علت ایجاد <span class="gtext">بیماری‌های سیستم عصبی</span></h2>
+  </div>
+  <p class="lead reveal">حتماً در خانواده و اجتماع دربارهٔ بیماری‌هایی مثل افسردگی، فراموشی و فلج مغزی شنیده‌ای. کتاب توضیح می‌دهد این بیماری‌ها چگونه به‌وجود می‌آیند: <span class="extra">کتاب، صفحۀ ۵۲</span></p>
+
+  <div class="card reveal">
+    <h3><span class="ic">🩺</span> دو نوع اختلال</h3>
+    <p class="mb0">این چند مورد، تنها مثال‌هایی از بیماری‌های متعدد سیستم عصبی مرکزی هستند. در برخی از این بیماری‌ها <b class="hl">توانایی‌های حسی و حرکتی فرد مختل می‌شود</b> و در برخی دیگر <b class="hl-p">حالات خلقی و روانی فرد تغییر می‌کند</b>. با توجه به پیچیدگی سیستم عصبی، <b>هرگونه ناهماهنگی در عملکرد نورون‌ها و یا حتی سلول‌های پشتیبان این سیستم، سبب بروز بیماری می‌شود</b>.</p>
+  </div>
+
+  <div class="grid2 mt">
+    <div class="card reveal">
+      <h3><span class="ic">🧪</span> علت ۱: کم یا زیاد شدن نوروترانسمیترها</h3>
+      <p class="small mb0">نورون‌ها با رهاسازی <b class="hl">مواد شیمیایی ناقل که «نوروترانسمیتر» نامیده می‌شوند</b> به تبادل پیام در سیستم عصبی و در نتیجه کنترل بسیاری از اعمال بدن می‌پردازند. <b class="hl-p">کم یا زیاد شدن مقدار این مواد شیمیایی ناقل، سبب بروز بیماری می‌شود</b>.</p>
+    </div>
+    <div class="card reveal" data-d="1">
+      <h3><span class="ic">🕯️</span> علت ۲: مرگ نورون‌ها</h3>
+      <p class="small mb0">برخی دیگر از بیماری‌های سیستم عصبی، به دلیل <b class="hl">مرگ تعدادی از نورون‌ها در مغز یا نخاع</b> ایجاد می‌شوند.</p>
+    </div>
+    <div class="card reveal" data-d="2">
+      <h3><span class="ic">🛡️</span> علت ۳: اختلال سلول‌های پشتیبان</h3>
+      <p class="small mb0">اختلال عملکرد <b class="hl-p">سلول‌های پشتیبان</b> هم می‌تواند سبب بروز بیماری شود. به‌عنوان مثال، در بیماری <b class="hl">ام‌اس</b> عملکرد گروهی از سلول‌های پشتیبان سیستم عصبی مرکزی دچار نقصان می‌شود.</p>
+    </div>
+    <div class="card reveal" data-d="3" style="background:#FFFBEB;border:2px solid #FDE68A">
+      <h3><span class="ic">🎯</span> فعّالیت‌های کتاب</h3>
+      <p class="small"><b>فعالیت ۱:</b> دو نمونه از بیماری‌هایی که به دلیل تغییر میزان مواد شیمیایی ناقل در مغز بروز می‌کنند را پیدا کن و راجع به آنها بحث کن.</p>
+      <p class="mb0 small"><b>فعالیت ۲:</b> به نظرت چه عواملی می‌تواند سبب مرگ سلول‌های عصبی شود؟ دو نمونه از بیماری‌های ناشی از مرگ نورون‌ها را پیدا کن و در کلاس بحث کنید.</p>
+    </div>
+  </div>
+
+  <div class="card reveal mt center" data-d="1" style="background:linear-gradient(135deg,#F5F1FF,#FDF2F8)">
+    <p class="mb0">🖼️ زیرنویس تصویر کتاب: «آسیب سلول‌های پشتیبان سیستم عصبی مرکزی در بیماری ام‌اس» — پس یادت باشد ام‌اس را با <b>سلول‌های پشتیبان</b> به خاطر بسپار، نه نورون‌ها! 🛡️</p>
+  </div>
+</section>
+
+<!-- ============ ۱۹: اعتیاد و وابستگی ============ -->
+<section class="sec" id="s19">
+  <div class="sec-head reveal">
+    <div class="sec-num">۱۹</div>
+    <h2>⚠️ اعتیاد و <span class="gtext">وابستگی به مواد</span></h2>
+  </div>
+  <p class="lead reveal">متن تکمیلی پایان فصل: اعتیاد یک بیماریِ سیستم عصبی است — نه یک ضعف اخلاقی! <span class="extra">کتاب، صفحۀ ۵۳</span></p>
+
+  <div class="card reveal">
+    <h3><span class="ic">🤝</span> یک نگاه انسانی به معتاد</h3>
+    <p class="mb0">در دنیای کنونی تقریباً روزی نیست که دربارهٔ معضل اعتیاد در جوانان و عواقب ناخوشایند خانوادگی و اجتماعی آن نشنویم. حتماً شنیده‌ای که <b class="hl">فرد معتاد مجرم نیست، بلکه یک بیمار است</b> و باید در جامعه به دید یک بیمار به او نگریسته شود و برای درمان وی تلاش شود. <b class="hl-p">اعتیاد یا وابستگی به مواد شیمیایی خاص، یکی از بیماری‌های مزمن سیستم عصبی</b> محسوب می‌شود.</p>
+  </div>
+
+  <div class="card reveal mt" data-d="1">
+    <h3><span class="ic">🔄</span> چرخۀ اعتیاد چگونه شکل می‌گیرد؟</h3>
+    <p><b class="hl">اثرات خوشایند اما زودگذر</b> برخی مواد شیمیایی اعتیادآور مانند <b>نیکوتین</b>، افراد را به استفاده از این مواد ترغیب می‌کند. استفاده از این مواد، <b class="hl-p">تغییراتی در مدارهای مغزی مرتبط با سیستم پاداش، انگیزش و حافظه</b> ایجاد می‌کند. در اغلب موارد، فرد پس از <b>دفعات اندکی از مصرف</b>، احساس وابستگی می‌کند.</p>
+    <div class="flow">
+      <span class="fnode"><span class="fi">✨</span> اثر خوشایند زودگذر</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">🧠</span> تغییر مدارهای پاداش، انگیزش و حافظه</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">🔗</span> وابستگی</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">😵</span> علائم ناخوشایند بدون مصرف</span>
+      <span class="wire"></span>
+      <span class="fnode"><span class="fi">🔁</span> مصرف مکرر</span>
+    </div>
+    <span class="flow-label">در صورت عدم مصرف، علائم ناخوشایند جسمی و روحی، فرد را ناگزیر به ادامهٔ مصرف مکرر می‌کند</span>
+  </div>
+
+  <div class="grid2 mt">
+    <div class="card reveal" style="border-top:6px solid #10B981">
+      <h3><span class="ic">🧠</span> مغز فرد سالم</h3>
+      <div class="center" style="font-size:64px;filter:drop-shadow(0 0 18px rgba(16,185,129,.5))">🧠</div>
+      <div class="mt">
+        <div class="small" style="font-weight:800">سطح فعالیت مغزی</div>
+        <div class="plast-track" style="margin-top:6px"><i style="width:85%;background:linear-gradient(90deg,#F87171,#EF4444)"></i></div>
+        <span class="small">🔴 قرمز = فعالیت زیاد</span>
+      </div>
+    </div>
+    <div class="card reveal" data-d="1" style="border-top:6px solid #3B82F6">
+      <h3><span class="ic">🧠</span> مغز فرد معتاد (مصرف شیشه)</h3>
+      <div class="center" style="font-size:64px;filter:grayscale(.4) drop-shadow(0 0 18px rgba(59,130,246,.45))">🧠</div>
+      <div class="mt">
+        <div class="small" style="font-weight:800">سطح فعالیت مغزی</div>
+        <div class="plast-track" style="margin-top:6px"><i style="width:14%;background:linear-gradient(90deg,#93C5FD,#3B82F6)"></i></div>
+        <span class="small">🔵 آبی = فعالیت کمترین — عملکرد مغزی بسیار پایین است</span>
+      </div>
+    </div>
+  </div>
+  <p class="small center reveal mt">📌 توضیح تصویر کتاب: در تصویر مقایسه‌ای، مناطقی که رنگی غیر از آبی دارند، مناطق فعال مغز هستند؛ قرمز نشان‌دهندۀ فعالیت زیاد و سبز نشان‌دهندۀ فعالیت کم است. عملکرد مغزی فردی که شیشه مصرف می‌کند، بسیار پایین است.</p>
+
+  <div class="warn reveal mt">
+    <span class="wicon">🚫</span>
+    <h3 style="font-size:20px;margin:8px 0 10px">هشدار متن کتاب</h3>
+    <p class="mb0">مصرف مداوم مواد اعتیادآور <b class="hl-p">اثرات مخرب و جبران‌ناپذیری در مغز</b> بر جای می‌گذارد. با وجود افزایش روزافزون تعداد مواد شیمیایی اعتیادآور در جوامع مختلف، هنوز <b class="hl">روشی مؤثرّ و قطعی برای درمان اعتیاد و وابستگی وجود ندارد</b>. بهترین راه، شروع‌نکردن است! 🛡️</p>
+  </div>
+</section>
+
+<!-- ============ ۲۰: خود را بیازمایید ============ -->
+<section class="sec" id="s20">
+  <div class="sec-head reveal">
+    <div class="sec-num">۲۰</div>
+    <h2>❓ خود را بیازمایید <span class="gtext">(پایان فصل)</span></h2>
+  </div>
+  <p class="lead reveal">۵ سؤال پایانی فصل — اول خودت جواب بده، بعد روی هر سؤال بزن تا راهنمای پاسخ باز شود! <span class="extra">کتاب، صفحۀ ۵۳</span></p>
+  <div class="reveal" style="display:grid;gap:10px">
+    <div class="rev" onclick="this.classList.toggle('open')">
+      <div class="rev-h"><span>۱) به نظرت چرا آنچه در کودکی یاد گرفته می‌شود، نسبت به آموخته‌های دوران بزرگسالی زمان بیشتری در ذهن باقی می‌ماند؟</span><span><span class="rmark" style="color:#7C3AED">💡</span><span class="chev">▾</span></span></div>
+      <div class="rev-b small">چون در کودکی — به‌ویژه سال‌های اولیۀ زندگی — قابلیت تغییرپذیری مغز بسیار بالاست و ارتباط‌های نورونیِ ساخته‌شده در این دوران قوی و پایدارند؛ با افزایش سن، این قابلیت کاهش می‌یابد (هرچند تا پایان عمر باقی می‌ماند).</div>
+    </div>
+    <div class="rev" onclick="this.classList.toggle('open')">
+      <div class="rev-h"><span>۲) آیا مغز آسیب‌دیده می‌تواند ترمیم شود؟</span><span><span class="rmark" style="color:#7C3AED">💡</span><span class="chev">▾</span></span></div>
+      <div class="rev-b small">نورون‌ها سلول‌های تمایزیافته‌ای هستند و دیگر تکثیر نمی‌شوند؛ پس سلول‌های ازدست‌رفته جایگزین نمی‌شوند. اما به لطف تغییرپذیری، نورون‌های سالم با ایجاد ارتباط‌های جدید می‌توانند به‌صورت «نسبی» عملکرد ازدست‌رفته را جبران کنند (مانند دورۀ توانبخشی پس از سکتۀ مغزی).</div>
+    </div>
+    <div class="rev" onclick="this.classList.toggle('open')">
+      <div class="rev-h"><span>۳) چرا در اثر عدم مصرف مواد مخدر، فرد معتاد دچار علائم ناخوشایند جسمی و روحی می‌شود؟</span><span><span class="rmark" style="color:#7C3AED">💡</span><span class="chev">▾</span></span></div>
+      <div class="rev-b small">چون مواد اعتیادآور تغییراتی در مدارهای مغزی مرتبط با سیستم پاداش، انگیزش و حافظه ایجاد کرده‌اند و بدن به ماده وابسته شده است؛ در نبودِ ماده، علائم ناخوشایند جسمی و روحی بروز می‌کند و فرد ناگزیر به ادامهٔ مصرف مکرر می‌شود.</div>
+    </div>
+    <div class="rev" onclick="this.classList.toggle('open')">
+      <div class="rev-h"><span>۴) دو علت برای ایجاد بیماری‌های سیستم عصبی نام ببر.</span><span><span class="rmark" style="color:#7C3AED">💡</span><span class="chev">▾</span></span></div>
+      <div class="rev-b small">۱) کم یا زیاد شدن مقدار نوروترانسمیترها (مواد شیمیایی ناقل پیام)؛ ۲) مرگ تعدادی از نورون‌ها در مغز یا نخاع؛ ۳) اختلال عملکرد سلول‌های پشتیبان (مانند ام‌اس). کتاب هر سه علت را گفته است؛ در پاسخ، ذکر دو مورد کافی است.</div>
+    </div>
+    <div class="rev" onclick="this.classList.toggle('open')">
+      <div class="rev-h"><span>۵) با استفاده از دانش مغز و علوم اعصاب، علل علمی «فوت‌های کوزه‌گری درس خواندن» را توضیح بده.</span><span><span class="rmark" style="color:#7C3AED">💡</span><span class="chev">▾</span></span></div>
+      <div class="rev-b small">مرور مرتب ← تثبیت حافظۀ کوتاه‌مدت به بلندمدت؛ ربط‌دادن مطالب، ساختن داستان و خلاصه‌نویسی ← برقراری ارتباط‌های جدید بین نورون‌ها؛ محیط آرام و بدون حواس‌پرتی ← تمرکز و پردازش بهتر اطلاعات؛ ورزش و خواب کافی ← نشاط و کارایی بیشتر ذهن؛ علاقه به مطلب ← فعال‌شدن انگیزه و مدارهای پاداش مغز.</div>
+    </div>
+  </div>
+  <div class="card reveal mt center" data-d="1" style="background:linear-gradient(135deg,#F5F1FF,#F0FDFF)">
+    <p class="mb0">🎉 <b>آفرین!</b> اگر به این ۵ سؤال جواب دادی، یعنی کل فصل ۴ — از متن اصلی تا پیوست‌ها — را یاد گرفتی. حالا برو سراغ آزمون جامع پایین صفحه! 📝</p>
+    <a href="#quiz" class="btn btn-grad mt" style="display:inline-flex">رفتن به آزمون جامع 📝</a>
+  </div>
+</section>
+
+<!-- ============ آزمون ============ -->
+<section class="sec" id="quiz">
+  <div class="quiz-sec reveal">
+    <h2 class="quiz-title">📝 آزمون جامع ۴۲ سؤالی</h2>
+    <p class="quiz-sub">همهٔ نکات فصل «تنظیم عصبی» را پوشش می‌دهد — از مقدمه تا نخاع + پیوست‌های تشریح، حافظه و اعتیاد!</p>
+    <div class="quiz-shell">
+      <div class="q-head">
+        <div class="qmeta"><span id="qCounter">آماده‌ای؟</span></div>
+        <div class="score-pill" id="qScore">امتیاز: ۰</div>
+      </div>
+      <div class="qprog-wrap"><div class="qprog"><i id="qBar"></i></div></div>
+      <div class="q-body" id="qBody">
+        <div class="q-start" id="qStart">
+          <span class="big">🏆</span>
+          <h3>آزمون فصل تنظیم عصبی</h3>
+          <ul>
+            <li>✅ ۴۲ سؤال چهارگزینه‌ای از تمام بخش‌های جزوه و پیوست‌ها</li>
+            <li>⚡ بعد از هر پاسخ، توضیح درست را همان‌جا می‌بینی</li>
+            <li>🎯 در پایان، نمره، نمودار و مرور کامل پاسخ‌ها را داری</li>
+            <li>🔁 هر چند بار که بخواهی می‌توانی تکرارش کنی</li>
+          </ul>
+          <button class="btn btn-grad" onclick="startQuiz()">شروع آزمون 🚀</button>
+        </div>
+        <div id="qQuiz" style="display:none"></div>
+        <div id="qResult" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:44px;margin-bottom:8px">🧠</div>
+  <b style="color:#fff;font-size:17px">جزوهٔ تعاملی تنظیم عصبی</b>
+  <p class="small" style="color:#C9BBF5">بر پایهٔ کتاب علوم تجربی پایهٔ هشتم — فصل ۴ (صفحات ۲۶ تا ۳۲ + پیوست‌های ۴۴ تا ۵۳) و یادداشت‌های کلاسی</p>
+  <div class="flinks">
+    <span>📖 متن و پیوست‌های کتاب ← ۲۰ بخش تعاملی</span>
+    <span>🗺️ نقشهٔ ذهنی کامل</span>
+    <span>🎴 ۲۰ فلش‌کارت واژگان</span>
+    <span>🔬 آزمایشگاه تشریح مجازی</span>
+    <span>📝 آزمون ۴۲ سؤالی</span>
+  </div>
+  <p class="small" style="color:#B49DE8;margin-bottom:0">برای مرور دائمی، این فایل را در گوشی یا کامپیوتر ذخیره کن و هر بار بدون اینترنت باز کن ✨</p>
+</footer>
+<button id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="بازگشت به بالا">↑</button>
+<script>
+/* ===== ابزارها ===== */
+const FA = n => String(n).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ===== پس‌زمینهٔ نورونی هیرو ===== */
+(function(){
+  const cv = $('#neuro'), ctx = cv.getContext('2d');
+  let W, H, nodes = [], raf;
+  const COLORS = ['#F9A8D4','#67E8F9','#FDE68A','#C4B5FD','#F0ABFC'];
+  function resize(){
+    W = cv.width = cv.offsetWidth; H = cv.height = cv.offsetHeight;
+    const N = Math.min(85, Math.floor(W / 14));
+    nodes = Array.from({length:N}, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-.5)*.55, vy: (Math.random()-.5)*.55,
+      r: 1.4 + Math.random()*2.2,
+      c: COLORS[Math.random()*COLORS.length|0],
+      pulse: 0
+    }));
+  }
+  function frame(){
+    ctx.clearRect(0,0,W,H);
+    for(const n of nodes){
+      n.x += n.vx; n.y += n.vy;
+      if(n.x < 0 || n.x > W) n.vx *= -1;
+      if(n.y < 0 || n.y > H) n.vy *= -1;
+    }
+    for(let i=0;i<nodes.length;i++){
+      for(let j=i+1;j<nodes.length;j++){
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x-b.x, dy = a.y-b.y, d = Math.hypot(dx,dy);
+        if(d < 120){
+          ctx.globalAlpha = (1 - d/120) * .34;
+          ctx.strokeStyle = '#C4B5FD';
+          ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        }
+      }
+    }
+    for(const n of nodes){
+      ctx.globalAlpha = .9;
+      ctx.fillStyle = n.c;
+      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,7); ctx.fill();
+      if(n.pulse > 0){
+        ctx.globalAlpha = n.pulse * .55;
+        ctx.strokeStyle = n.c; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.arc(n.x,n.y,(1-n.pulse)*26+4,0,7); ctx.stroke();
+        n.pulse -= .02;
+      } else if(Math.random() < .004){ n.pulse = 1; }
+    }
+    ctx.globalAlpha = 1;
+    raf = requestAnimationFrame(frame);
+  }
+  resize();
+  addEventListener('resize', resize);
+  if(reduceMotion){ frame(); cancelAnimationFrame(raf); } else frame();
+})();
+
+/* ===== نوار پیشرفت + دکمهٔ بالا ===== */
+addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const p = h.scrollTop / (h.scrollHeight - h.clientHeight) * 100;
+  $('#progress').style.width = p + '%';
+  $('#totop').classList.toggle('show', h.scrollTop > 650);
+}, {passive:true});
+
+/* ===== آشکارسازی هنگام اسکرول ===== */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting){
+    e.target.classList.add('in');
+    io.unobserve(e.target);
+    if(e.target.dataset.count) runCounter(e.target);
+    if(e.target.id === 'donut' || e.target.querySelector?.('#donut')) fillDonut();
+  }
+}), {threshold:.15});
+$$('.reveal, [data-count]').forEach(el => io.observe(el));
+
+/* ===== هایلایت ناوبری ===== */
+const navLinks = [...$$('.nav a')];
+const secIO = new IntersectionObserver(es => es.forEach(e => {
+  if(e.isIntersecting){
+    navLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+  }
+}), {rootMargin:'-40% 0px -55% 0px'});
+$$('section.sec').forEach(s => secIO.observe(s));
+
+/* ===== شمارنده‌ها ===== */
+function runCounter(el){
+  const target = +el.dataset.count, t0 = performance.now(), dur = 1500;
+  (function tick(t){
+    const k = Math.min(1,(t-t0)/dur), v = Math.round(target * (1 - Math.pow(1-k,3)));
+    el.textContent = FA(v);
+    if(k < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+
+/* ===== دونات ۳۱/۱۲ ===== */
+let donutDone = false;
+function fillDonut(){
+  if(donutDone) return; donutDone = true;
+  const C = 2*Math.PI*80;
+  const s1 = C * 31/43, s2 = C * 12/43;
+  $('#d1').style.strokeDasharray = `${s1} ${C}`;
+  $('#d2').style.strokeDasharray = `${s2} ${C}`;
+  $('#d2').style.strokeDashoffset = -s1;
+}
+$('#donut').closest('.card').classList && io.observe($('#donut').closest('.card'));
+
+/* ===== وضعیت ورزش/استراحت ===== */
+const STATES = {
+  sport:{items:[['❤️ ضربان قلب',88,'↑ زیاد می‌شود'],['🫁 تنفس',80,'↑ زیاد می‌شود'],['💧 عرق‌کردن',70,'↑ زیاد می‌شود'],['🏃 حرکت بدن',95,'↑ زیاد می‌شود']], msg:'دستگاه عصبی همهٔ این‌ها را هماهنگ بالا می‌برد!'},
+  rest:{items:[['❤️ ضربان قلب',30,'↓ کاهش می‌یابد'],['🫁 تنفس',28,'↓ کاهش می‌یابد'],['💧 عرق‌کردن',10,'↓ کاهش می‌یابد'],['🏃 حرکت بدن',12,'↓ کاهش می‌یابد']], msg:'هنگام استراحت همهٔ فعالیت‌ها متناسب کاهش می‌یابد.'}
+};
+function setState(k){
+  $('#stateSport').classList.toggle('on', k==='sport');
+  $('#stateRest').classList.toggle('on', k==='rest');
+  const s = STATES[k];
+  $('#stateBars').innerHTML = s.items.map(([name,v,lbl]) => `
+    <div style="margin:14px 0 4px;display:flex;justify-content:space-between;font-size:14px;font-weight:800">
+      <span>${name}</span><span class="small" style="font-weight:800">${lbl}</span>
+    </div>
+    <div style="height:14px;background:#EFE9FB;border-radius:99px;overflow:hidden">
+      <i style="display:block;height:100%;width:0;border-radius:99px;background:var(--grad);transition:width 1s cubic-bezier(.3,.7,.3,1)" data-w="${v}"></i>
+    </div>`).join('')
+    + `<p class="small center mt mb0">${s.msg}</p>`;
+  requestAnimationFrame(() => requestAnimationFrame(() =>
+    $$('#stateBars i').forEach(i => i.style.width = i.dataset.w + '%')));
+}
+setState('sport');
+
+/* ===== تب‌ها ===== */
+$$('.tabs').forEach(tw => tw.addEventListener('click', e => {
+  const b = e.target.closest('.tab'); if(!b) return;
+  const scope = tw.parentElement;
+  scope.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
+  b.classList.add('on');
+  scope.querySelectorAll('.tabpane').forEach(p => p.classList.remove('on'));
+  $('#' + b.dataset.tab).classList.add('on');
+}));
+
+/* ===== مراحل برداشتن مداد ===== */
+let stepsTimer = null;
+function playSteps(){
+  clearTimeout(stepsTimer);
+  const steps = [...$$('#pencilSteps .step')];
+  steps.forEach(s => s.classList.remove('lit'));
+  steps.forEach((s,i) => { stepsTimer = setTimeout(() => s.classList.add('lit'), 500 + i*700); });
+}
+
+/* ===== دموی انعکاس زانو ===== */
+function tapHammer(){
+  const st = $('#reflexStage');
+  if(st.classList.contains('tapped')) return;
+  st.classList.add('tapped');
+  setTimeout(() => { st.classList.remove('tapped'); st.classList.add('done'); }, 850);
+  setTimeout(() => st.classList.remove('done'), 3600);
+}
+
+/* ===== نقشه‌های ذهنی تاشو ===== */
+$$('.mm .node.has-kids').forEach(n => n.addEventListener('click', () => {
+  n.parentElement.classList.toggle('closed');
+}));
+</script>
+<script>
+/* ===== مغز تعاملی ===== */
+const BRAIN = {
+  hemi:{t:'نیمکره‌های مغز',c:'#7C3AED',tag:'قسمت اصلی مغز',d:[
+    '<b>بیشتر حجم مغز</b> ما را نیمکره‌های مغز تشکیل می‌دهند.',
+    'اطلاعات اندام‌های حسی مانند <b>چشم، گوش، پوست، بینی و زبان</b> را دریافت می‌کنند.',
+    'دستورهای لازم را برای بخش‌های گوناگون بدن، مانند <b>ماهیچه‌ها</b>، می‌فرستند.',
+    'به توانایی‌های <b>فکرکردن، حرف‌زدن و حل مسئله</b> راه می‌دهند.',
+    '<b>نیمکرهٔ چپ ← نیمهٔ راست بدن</b> و <b>نیمکرهٔ راست ← نیمهٔ چپ بدن</b> را کنترل می‌کند.',
+    'دو نیمکره <b>با هم مرتبط‌اند و فعالیت‌های مشترک</b> دارند.']},
+  cortex:{t:'قشر مغز',c:'#EC4899',tag:'لایهٔ بیرونی',d:[
+    'بخش <b>بیرونی نیمکره‌های مغز</b> است.',
+    '<b>مرکز بسیاری از اعمال ارادی بدن</b> است.',
+    'به <b>چهار ناحیه</b> تقسیم می‌شود: <b>پیشانی، آهیانه، گیجگاهی و پس‌سری</b> (شکل ۳ کتاب).']},
+  frontal:{t:'ناحیهٔ پیشانی',c:'#FB923C',tag:'ناحیهٔ قشر مغز',d:[
+    'یکی از چهار ناحیهٔ قشر مغز (جلوی مغز).',
+    '<span class="extra">اطلاعات بیشتر</span> در تصمیم‌گیری، برنامه‌ریزی و فرمان‌دادن به حرکات ارادی نقش مهمی دارد.']},
+  parietal:{t:'ناحیهٔ آهیانه',c:'#A78BFA',tag:'ناحیهٔ قشر مغز',d:[
+    'یکی از چهار ناحیهٔ قشر مغز (بالای مغز).',
+    '<span class="extra">اطلاعات بیشتر</span> حس‌هایی مانند لمس، دما و موقعیت بدن را پردازش می‌کند.']},
+  temporal:{t:'ناحیهٔ گیجگاهی',c:'#2DD4BF',tag:'ناحیهٔ قشر مغز',d:[
+    'یکی از چهار ناحیهٔ قشر مغز (پایین و کنار مغز).',
+    '<span class="extra">اطلاعات بیشتر</span> صداهای رسیده از گوش را پردازش می‌کند و در درک گفتار نقش دارد.']},
+  occipital:{t:'ناحیهٔ پس‌سری',c:'#4ADE80',tag:'ناحیهٔ قشر مغز',d:[
+    'یکی از چهار ناحیهٔ قشر مغز (پشت مغز).',
+    '<span class="extra">اطلاعات بیشتر</span> اطلاعات بینایی از چشم‌ها این‌جا به تصویر تبدیل می‌شود.']},
+  cerb:{t:'مخچه',c:'#F59E0B',tag:'قسمت اصلی مغز',d:[
+    'مرکز <b>حفظ تعادل</b> بدن؛ در ورزش و حتی راه‌رفتن و نشستن فعال است.',
+    'پیام‌هایی از <b>چشم، گوش و پوست</b> دریافت می‌کند.',
+    'با بررسی این اطلاعات، <b>پیام حرکتی به ماهیچه‌ها</b> می‌فرستد تا با انقباضشان تعادل حفظ شود.',
+    'بندبازان و ژیمناست‌کارها با <b>تمرین زیاد، مخچه‌شان را تقویت کرده‌اند</b>.',
+    'بخش میانی مخچه <b>کرمینه</b> نام دارد.']},
+  stem:{t:'ساقهٔ مغز',c:'#F472B6',tag:'قسمت اصلی مغز',d:[
+    'بخش <b>ساقه‌مانندِ زیر مغز</b> است.',
+    '<b>مغز و مخچه را به نخاع وصل می‌کند</b>.',
+    'بخشی از آن که بالای نخاع قرار دارد، <b>بصل‌النخاع</b> است.']},
+  medulla:{t:'بصل‌النخاع',c:'#DB2777',tag:'گرهٔ حیات ❤️',d:[
+    'بخشی از ساقهٔ مغز که <b>در بالای نخاع</b> قرار دارد.',
+    '<b>مرکز کنترل فعالیت‌های غیرارادی</b> مثل <b>تنفس، ضربان قلب و فشار خون</b> است.',
+    'به دلیل اهمیت حیاتی‌اش، به آن <b>«گرهٔ حیات»</b> می‌گویند (شکل ۶ کتاب).']}
+};
+function showBrain(key){
+  const d = BRAIN[key]; if(!d) return;
+  $$('#brainsvg .lobe, #brainsvg .cortex-ring').forEach(el => el.classList.toggle('on', el.dataset.key === key));
+  $$('#blegend .bchip').forEach(el => el.classList.toggle('on', el.dataset.key === key));
+  $('#binfo').style.setProperty('--k', d.c);
+  $('#binfo').style.animation = 'none'; void $('#binfo').offsetWidth; $('#binfo').style.animation = 'fadein .35s both';
+  $('#binfo').innerHTML = `<span class="btag">${d.tag}</span><h3>${d.t}</h3><ul>${d.d.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+}
+const LEGEND = [
+  ['hemi','نیمکره‌ها','#7C3AED'],['cortex','قشر مغز','#EC4899'],
+  ['frontal','پیشانی','#FB923C'],['parietal','آهیانه','#A78BFA'],
+  ['temporal','گیجگاهی','#2DD4BF'],['occipital','پس‌سری','#4ADE80'],
+  ['cerb','مخچه','#F59E0B'],['stem','ساقهٔ مغز','#F472B6'],['medulla','بصل‌النخاع','#DB2777']
+];
+$('#blegend').innerHTML = LEGEND.map(([k,t,c]) => `<button class="bchip" data-key="${k}" style="--c:${c}" onclick="showBrain('${k}')">${t}</button>`).join('');
+$$('#brainsvg .lobe, #brainsvg .cortex-ring').forEach(el => el.addEventListener('click', () => showBrain(el.dataset.key)));
+showBrain('hemi');
+
+/* ===== فلش‌کارت‌ها ===== */
+const CARDS = [
+  ['🧩','واپایش','همان «کنترل» است؛ بخش مرکزی دستگاه عصبی، فعالیت‌های ارادی و غیرارادی بدن را واپایش (کنترل) می‌کند.'],
+  ['👁️','پیام حسی','اطلاعاتی که از محیط دریافت می‌شود و اعصاب آن را از اندام‌ها به مغز و نخاع می‌رسانند.'],
+  ['💪','پیام عصبی (حرکتی)','دستورهایی که در مغز و نخاع صادر می‌شوند و مثلاً به ماهیچه‌ها فرستاده می‌شوند.'],
+  ['🖊️','فعالیت ارادی','فعالیتی که با اراده و خواست خودِ ما انجام می‌شود؛ مانند برداشتن مداد از زمین.'],
+  ['❤️','فعالیت غیرارادی','فعالیتی بدون ارادهٔ ما؛ مانند ضربان قلب؛ همیشه انجام می‌شود و متناسب با نیاز بدن تنظیم می‌گردد.'],
+  ['⚡','واکنش بازتابی','واکنش سریع، بدون اراده و تفکر؛ برای حفظ سلامت بدن؛ مانند کنار کشیدن دست از کتری داغ.'],
+  ['🌸','قشر مغز','بخش بیرونی نیمکره‌های مغز و مرکز بسیاری از اعمال ارادی بدن؛ شامل ۴ ناحیه.'],
+  ['🤸','مخچه','مرکز حفظ تعادل بدن؛ با پیام‌های چشم، گوش و پوست کار می‌کند و با تمرین تقویت می‌شود.'],
+  ['🧵','کرمینه','بخش میانی مخچه (در شکل ۴ کتاب کنار نیمکرهٔ چپ و راست مخچه).'],
+  ['❤️‍🩹','بصل‌النخاع','بخشی از ساقهٔ مغز در بالای نخاع؛ مرکز تنفس، ضربان قلب و فشار خون.'],
+  ['🪢','گرهٔ حیات','نام دیگر بصل‌النخاع؛ به دلیل اهمیت حیاتی فعالیت‌هایی که کنترل می‌کند.'],
+  ['🦵','انعکاس زانو','انعکاسی که مرکز آن نخاع است؛ با ضربه به زیر زانو، ساق پا به‌طور ناخودآگاه جلو می‌آید.'],
+  ['🔬','فرمالین','محلول ۵ تا ۱۰ درصدی که مغز گوسفند چند روز در آن می‌ماند تا سفت شود؛ قبل از تشریح باید با آب شسته شود.'],
+  ['🥚','تالاموس','دو برجستگی تخم‌مرغی‌شکل در جلوی محوطهٔ بطن سوم مغز که در برش طولی دیده می‌شود.'],
+  ['⏳','بطن سوم','محوطه‌ای در وسط مغز که زیر پردهٔ نازک و قرمزرنگ قرار دارد؛ پشتش غدهٔ پینه‌آل و برجستگی‌های چهارگانه است.'],
+  ['💾','حافظهٔ کوتاه‌مدت','اطلاعات ابتدا به‌صورت کوتاه‌مدت و موقتی ذخیره می‌شوند و پس از تثبیت به حافظهٔ بلندمدت تبدیل می‌گردند.'],
+  ['🔗','سیناپس','ارتباط بین نورون‌ها؛ تعداد آن در افراد مختلف و زمان‌های مختلف متغیر است و با یادگیری تغییر می‌کند.'],
+  ['🧪','نوروترانسمیتر','مواد شیمیایی ناقل پیام بین نورون‌ها؛ کم یا زیاد شدن آنها سبب بروز بیماری می‌شود.'],
+  ['🛡️','سلول‌های پشتیبان','حامی سیستم عصبی مرکزی؛ اختلال عملکردشان بیماری‌زا است؛ مانند بیماری ام‌اس.'],
+  ['⚠️','اعتیاد','بیماری مزمن سیستم عصبی؛ مدارهای پاداش، انگیزش و حافظه را تغییر می‌دهد.']
+];
+$('#fcgrid').innerHTML = CARDS.map(([ic,t,b]) => `
+  <div class="fc" onclick="this.classList.toggle('flip')">
+    <div class="fc-in">
+      <div class="fc-face fc-front"><span class="fic">${ic}</span>${t}<span class="hint">برای دیدن معنا کلیک کن ↻</span></div>
+      <div class="fc-face fc-back">${b}</div>
+    </div>
+  </div>`).join('');
+</script>
+<script>
+/* ===== بانک سؤالات (۳۰ سؤال از تمام فصل) ===== */
+const QS = [
+{q:'تنظیم دستگاه‌های بدن به دو صورت انجام می‌شود؛ این دو صورت کدام‌اند؟',
+ o:['عصبی و شیمیایی (هورمونی)','ارادی و غیرارادی','حسی و حرکتی','مرکزی و محیطی'], a:0,
+ e:'متن آغازین فصل می‌گوید: تنظیم دستگاه‌های بدن به دو صورت عصبی و شیمیایی (هورمونی) انجام می‌شود.'},
+{q:'بخش مرکزی دستگاه عصبی از چه چیزی تشکیل شده است؟',
+ o:['مغز و اعصاب','مغز و نخاع','نخاع و اعصاب','مخچه و اعصاب'], a:1,
+ e:'بخش مرکزی از مغز و نخاع تشکیل شده و مرکز واپایش (کنترل) فعالیت‌های ارادی و غیرارادی بدن است.'},
+{q:'مجموعهٔ اعصابی که همهٔ قسمت‌های بدن را به بخش مرکزی دستگاه عصبی مربوط می‌کند، چه نامیده می‌شود؟',
+ o:['بخش مرکزی','بخش محیطی','قشر مغز','بصل‌النخاع'], a:1,
+ e:'به مجموعهٔ اعصابی که همهٔ قسمت‌های بدن را به مغز و نخاع مربوط می‌کند، «بخش محیطی» می‌گویند.'},
+{q:'وظیفهٔ اصلی بخش محیطی دستگاه عصبی چیست؟',
+ o:['فکرکردن و حل مسئله','حفظ تعادل بدن','برقراری ارتباط بین قسمت‌های بدن و بخش مرکزی','کنترل فشار خون'], a:2,
+ e:'بخش محیطی، همهٔ قسمت‌های بدن را به بخش مرکزی (مغز و نخاع) وصل می‌کند.'},
+{q:'پیام‌های حسی در کدام جهت منتقل می‌شوند؟',
+ o:['از مغز به ماهیچه‌ها','از بخش‌های مختلف بدن به بخش مرکزی','از نخاع به پوست','از قلب به مغز'], a:1,
+ e:'اعصاب، پیام‌های حسی را از بخش‌های مختلف بدن به بخش مرکزی می‌رسانند.'},
+{q:'به دستورهایی که در مغز و نخاع صادر و مثلاً به ماهیچه‌ها فرستاده می‌شوند، چه می‌گویند؟',
+ o:['پیام حسی','پیام عصبی (حرکتی)','پیام هورمونی','انعکاس'], a:1,
+ e:'کتاب: پیام عصبی به دستورهایی می‌گویند که در مغز و نخاع صادر و مثلاً به ماهیچه‌ها فرستاده می‌شوند.'},
+{q:'برداشتن مدادِ افتاده از روی زمین چه نوع فعالیتی است و چرا؟',
+ o:['غیرارادی؛ چون همیشه انجام می‌شود','ارادی؛ چون با اراده و خواست ما انجام می‌شود','انعکاسی؛ چون بسیار سریع است','هورمونی؛ چون خون آن را منتقل می‌کند'], a:1,
+ e:'این فعالیت چون با اراده و خواست ما انجام می‌شود، فعالیت ارادی است.'},
+{q:'کدام گزینه نمونه‌ای از فعالیت غیرارادی است؟',
+ o:['نوشتن نامه','ضربان قلب','برداشتن مداد','صحبت با تلفن'], a:1,
+ e:'ضربان قلب غیرارادی است؛ بدون خواست ما انجام می‌شود و متناسب با نیاز بدن تنظیم می‌گردد.'},
+{q:'هنگام ورزش، ضربان قلب و تنفس چگونه تغییر می‌کند؟',
+ o:['کاهش می‌یابند؛ چون بدن خسته می‌شود','زیاد می‌شوند؛ با دخالت دستگاه عصبی و متناسب با نیاز بدن','اصلاً تغییر نمی‌کنند','فقط ضربان قلب زیاد می‌شود؛ تنفس ربطی به دستگاه عصبی ندارد'], a:1,
+ e:'وقتی ورزش می‌کنید با دخالت دستگاه عصبی ضربان قلب و تنفس زیاد می‌شود؛ این تنظیم غیرارادی است.'},
+{q:'اگر دست شما ناخواسته با کتری داغ تماس پیدا کند، چه اتفاقی می‌افتد؟',
+ o:['ابتدا فکر می‌کنیم و بعد دست را عقب می‌کشیم','دست به‌طور غیرارادی و سریع عقب کشیده می‌شود (پاسخ بازتابی)','مغز باید اول تصمیم بگیرد و بعد دست حرکت می‌کند','دست هیچ واکنشی نشان نمی‌دهد'], a:1,
+ e:'این واکنش بدون اراده و فکر و به‌طور غیرارادی انجام می‌شود و «بازتابی یا انعکاسی» نامیده می‌شود.'},
+{q:'کدام گزینه نمونه‌ای از پاسخ انعکاسی است؟',
+ o:['پلک‌زدن','حل مسئلهٔ ریاضی','نوشتن در دفتر','صحبت کردن با دوست'], a:0,
+ e:'پلک‌زدن، عطسه و سرفه نمونه‌هایی از پاسخ‌های انعکاسی هستند (یادداشت کلاسی صفحهٔ ۲۹).'},
+{q:'مغز در کدام قسمت قرار دارد؟',
+ o:['درون کانال ستون مهره‌ها','درون جمجمه','درون قفسهٔ سینه','زیر مخچه'], a:1,
+ e:'مغز درون جمجمه و نخاع درون کانال ستون مهره‌ها قرار دارد.'},
+{q:'نخاع در کجا قرار گرفته است؟',
+ o:['درون جمجمه','درون قفسهٔ سینه','درون کانال ستون مهره‌ها','روی بصل‌النخاع'], a:2,
+ e:'نخاع درون کانال ستون مهره‌ها قرار دارد و محافظت می‌شود.'},
+{q:'مغز و نخاع مانند «مرکز فرماندهی» بدن چه کاری انجام می‌دهند؟',
+ o:['فقط اطلاعات را ذخیره می‌کنند','اطلاعات را دریافت و درک می‌کنند، بررسی می‌کنند و در صورت نیاز دستور لازم را می‌دهند','انرژی بدن را تأمین می‌کنند','غذا را هضم می‌کنند'], a:1,
+ e:'این دو اندام ضمن دریافت و درک اطلاعات، آنها را بررسی می‌کنند و در صورت نیاز دستور لازم را به اندام‌ها می‌دهند.'},
+{q:'مغز از چه قسمت‌هایی تشکیل شده است؟',
+ o:['نیمکره‌های مغز، مخچه و ساقهٔ مغز','جمجمه، مغز و نخاع','قشر، نخاع و اعصاب','آهیانه، پیشانی و اعصاب'], a:0,
+ e:'مغز شامل نیمکره‌های مغز، مخچه و ساقهٔ مغز است (شکل ۲ کتاب).'},
+{q:'بیشتر حجم مغز را کدام بخش تشکیل می‌دهد؟',
+ o:['مخچه','ساقهٔ مغز','نیمکره‌های مغز','بصل‌النخاع'], a:2,
+ e:'بیشتر حجم مغز ما را نیمکره‌های مغز تشکیل می‌دهند.'},
+{q:'نیمکره‌های مغز اطلاعات کدام اندام‌های حسی را دریافت می‌کنند؟',
+ o:['فقط چشم','چشم، گوش، پوست، بینی و زبان','فقط گوش و بینی','قلب، ریه و معده'], a:1,
+ e:'نیمکره‌های مغز اطلاعات اندام‌های حسی مانند چشم، گوش، پوست، بینی و زبان را دریافت می‌کنند.'},
+{q:'نیمکرهٔ چپ مغز کدام قسمت بدن را کنترل می‌کند؟',
+ o:['نیمهٔ چپ بدن','نیمهٔ راست بدن','کل بدن','فقط سر'], a:1,
+ e:'نیمکرهٔ چپ، فعالیت‌های نیمهٔ راست بدن و نیمکرهٔ راست، فعالیت‌های نیمهٔ چپ بدن را کنترل می‌کند.'},
+{q:'کدام توانایی‌ها به نیمکره‌های مغز مربوط است؟',
+ o:['فکرکردن، حرف‌زدن و حل مسئله','فقط حفظ تعادل','فقط کنترل ضربان قلب','هضم غذا'], a:0,
+ e:'نیمکره‌های مغز به توانایی فکرکردن، حرف‌زدن و حل مسئله راه می‌دهند.'},
+{q:'بخش بیرونی نیمکره‌های مغز که مرکز بسیاری از اعمال ارادی بدن است، چه نام دارد؟',
+ o:['قشر مغز','بصل‌النخاع','کرمینه','ساقهٔ مغز'], a:0,
+ e:'قشر مغز، بخش بیرونی نیمکره‌های مغز و مرکز بسیاری از اعمال ارادی بدن است.'},
+{q:'قشر مغز به چهار ناحیه تقسیم می‌شود؛ کدام گزینه درست است؟',
+ o:['پیشانی، آهیانه، گیجگاهی و پس‌سری','پیشانی، میانی، گیجگاهی و زیرین','جمجمه، آهیانه، مغز و نخاع','چپ، راست، بالا و پایین'], a:0,
+ e:'قشر مغز به چهار ناحیهٔ پیشانی، آهیانه، گیجگاهی و پس‌سری تقسیم شده است.'},
+{q:'وظیفهٔ اصلی مخچه چیست؟',
+ o:['فکرکردن','حفظ تعادل بدن','کنترل فشار خون','ذخیرهٔ اطلاعات'], a:1,
+ e:'مخچه با بررسی اطلاعات چشم، گوش و پوست، پیام حرکتی به ماهیچه‌ها می‌فرستد و تعادل حفظ می‌شود.'},
+{q:'مخچه برای حفظ تعادل، پیام‌ها را از کدام اندام‌ها دریافت می‌کند؟',
+ o:['چشم، گوش و پوست','قلب و ریه','معده و روده','فقط ماهیچه‌ها'], a:0,
+ e:'پیام‌هایی از سوی اندام‌هایی مثل چشم، گوش و پوست برای مراکز عصبی به‌ویژه مخچه فرستاده می‌شود.'},
+{q:'چرا بندبازان و ژیمناست‌کارها تعادل بسیار خوبی دارند؟',
+ o:['چون مخچهٔ قوی‌تری به دنیا می‌آیند','چون با تمرینِ بیشتر، مخچهٔ خود را تقویت کرده‌اند','چون قشر مغز آن‌ها بزرگ‌تر است','چون نخاع آن‌ها کوتاه‌تر است'], a:1,
+ e:'کتاب: بندبازان و افراد ژیمناستیک‌کار با تمرینِ بیشتر، مخچهٔ خود را تقویت کرده‌اند.'},
+{q:'ساقهٔ مغز چه وظیفه‌ای دارد؟',
+ o:['مغز و مخچه را به نخاع وصل می‌کند','فکر می‌کند','اطلاعات چشمی را پردازش می‌کند','ماهیچه‌ها را منقبض می‌کند'], a:0,
+ e:'ساقهٔ مغز، بخش ساقه‌مانندِ زیر مغز است که مغز و مخچه را به نخاع وصل می‌کند.'},
+{q:'بصل‌النخاع مرکز کنترل کدام فعالیت‌هاست و چرا «گرهٔ حیات» نامیده می‌شود؟',
+ o:['تنفس، ضربان قلب و فشار خون؛ به دلیل اهمیت حیاتی آن','فکر و حافظه؛ چون مهم‌ترین بخش مغز است','تعادل؛ چون کنار مخچه است','گوارش؛ چون به معده وصل است'], a:0,
+ e:'بصل‌النخاع مرکز کنترل فعالیت‌های غیرارادی مثل تنفس، ضربان قلب و فشار خون است؛ با توجه به اهمیتش «گرهٔ حیات» نامیده می‌شود.'},
+{q:'کدام گزینه دربارهٔ نخاع درست است؟',
+ o:['طنابی سفیدرنگ است، درون ستون مهره‌هاست و از بصل‌النخاع تا کمر امتداد دارد','درون جمجمه قرار دارد','مرکز فکرکردن است','فقط پیام‌های حسی را منتقل می‌کند'], a:0,
+ e:'نخاع شبیهٔ طناب سفیدرنگی درون ستون مهره‌هاست و از بصل‌النخاع تا کمر امتداد دارد؛ ارتباط مغز و اعصاب را برقرار می‌کند.'},
+{q:'مرکز انعکاس زانو کدام قسمت است؟',
+ o:['نخاع','مغز','مخچه','بصل‌النخاع'], a:0,
+ e:'نخاع، مرکز برخی انعکاس‌ها مانند انعکاس زانو است (شکل ۷ کتاب).'},
+{q:'چند جفت عصب به دستگاه عصبی مرکزی وصل است و از کجا منشأ می‌گیرند؟',
+ o:['۴۳ جفت؛ ۳۱ جفت از نخاع و ۱۲ جفت از مغز','۱۲ جفت؛ فقط از مغز','۳۱ جفت؛ فقط از نخاع','۲۰ جفت؛ ۱۰ از نخاع و ۱۰ از مغز'], a:0,
+ e:'کادر «آیا می‌دانید؟»: ۴۳ جفت عصب به دستگاه عصبی مرکزی وصل است که ۳۱ جفت آن از نخاع و ۱۲ جفت آن از مغز منشأ می‌گیرد.'},
+{q:'چرا استفاده از کلاه ایمنی و کمربند توصیه می‌شود؟',
+ o:['چون آسیب دیدن دستگاه عصبی برخلاف بقیهٔ قسمت‌های بدن جبران‌ناپذیر است','چون ضربان قلب را کم می‌کند','چون رشد مغز را بیشتر می‌کند','چون فقط لباس را تمیز نگه می‌دارد'], a:0,
+ e:'کادر «هشدار ایمنی»: آسیب دیدن دستگاه عصبی جبران‌ناپذیر است؛ کلاه ایمنی و کمربند برای جلوگیری از این آسیب بسیار مفیدند.'},
+{q:'در آزمایش تشریح مغز گوسفند، مغز را چند روز در کدام محلول قرار می‌دهیم تا سفت‌تر شود؟',
+ o:['فرمالین ۵ تا ۱۰ درصد','آب نمک ۱۰ درصد','الکل ۹۶ درصد','سرکۀ رقیق'], a:0,
+ e:'کتاب: بهتر است مغز چند روز در محلول فرمالین ۵ تا ۱۰ درصد بماند تا سفت‌تر شود؛ سپس چند ساعت در آب بماند تا فرمالین شسته شود و هنگام تشریح هم دستکش مخصوص جراحی استفاده کنیم.'},
+{q:'هنگام مشاهدهٔ سطح پشتی مغز گوسفند، کدام قسمت‌ها شناسایی می‌شوند؟',
+ o:['فقط دو نیمکرۀ مخ','دو نیمکرۀ مخ، مخچه، کرمینه، بصل‌النخاع و قسمتی از نخاع','فقط بصل‌النخاع','لوب‌های بویایی و پل مغزی'], a:1,
+ e:'سطح پشتی: کف مغز را در دست می‌گیریم و دو نیمکرۀ مخ، مخچه، کرمینه، بصل‌النخاع و قسمتی از نخاع را که باقی مانده شناسایی می‌کنیم. (لوب‌های بویایی و پل مغزی مربوط به سطح شکمی‌اند.)'},
+{q:'در مشاهدهٔ سطح شکمی مغز گوسفند باید کدام قسمت‌ها را تشخیص دهیم؟',
+ o:['لوب‌های بویایی، اعصاب بینایی، پل مغزی و بصل‌النخاع','تالاموس و غدۀ پینه‌آل','قشر مغز و شیارهای آن','مخچه و کرمینه'], a:0,
+ e:'سطح شکمی را با دقت بررسی می‌کنیم و لوب‌های بویایی، اعصاب بینایی، پل مغزی و بصل‌النخاع را تشخیص می‌دهیم. (تالاموس و غدۀ پینه‌آل در برش طولی دیده می‌شوند.)'},
+{q:'پس از عمل جراحی بیمار مبتلا به صرع شدید چه اتفاقی افتاد و پزشکان به چه نتیجه‌ای رسیدند؟',
+ o:['بیمار همۀ خاطرات گذشته را فراموش کرد','بیمار وقایع جدید را فقط چند دقیقه به یاد می‌آورد؛ پس قسمتی از مغز مسئول تبدیل حافظۀ کوتاه‌مدت به بلندمدت است','حافظۀ بیمار کاملاً تقویت شد','بیمار توان حرف‌زدن خود را از دست داد'], a:1,
+ e:'بیمار وقایع جدید را فقط چند دقیقه نگه می‌داشت، ولی خاطرات قبل از عمل سالم بود؛ پس پزشکان نتیجه گرفتند قسمت برداشته‌شدهٔ مغز مسئول تبدیل حافظۀ کوتاه‌مدت به بلندمدت است.'},
+{q:'مغز انسان از حدود چند نورون تشکیل شده است؟',
+ o:['۱ میلیون','۱۰۰ هزار','۱۰۰ میلیارد','۱ تریلیون'], a:2,
+ e:'مغز انسان از حدود ۱۰۰ میلیارد نورون تشکیل شده که هر یک از طریق آکسون (آمینه) و دندریت‌های (دارینه) خود با نورون‌های دیگر ارتباط برقرار می‌کند.'},
+{q:'به ارتباط‌های بین نورون‌ها چه می‌گویند؟',
+ o:['سیناپس','نوروترانسمیتر','آکسون','دندریت'], a:0,
+ e:'تعداد ارتباطات بین‌نورونی یا همان سیناپس‌ها، نه فقط در افراد مختلف بلکه در یک فرد در زمان‌های مختلف نیز می‌تواند متغیر باشد.'},
+{q:'قابلیت تغییرپذیری مغز در چه زمانی بیشتر است؟',
+ o:['در کهنسالی','در بدو تولد و سال‌های اولیۀ زندگی','در نوجوانی از همۀ دوران کمتر است','در همۀ سنین یکسان است'], a:1,
+ e:'تغییرپذیری مغز در بدو تولد و سال‌های اولیۀ زندگی بسیار بالاست و با افزایش سن کاهش می‌یابد؛ اگرچه تا پایان عمر وجود خواهد داشت.'},
+{q:'در آزمایش کلاسی، مقایسۀ مغز دو موش (قفس خالی و قفس پر از اسباب‌بازی) چه نتیجه‌ای داشت؟',
+ o:['هیچ تفاوتی دیده نشد','ضخامت بخش خاکستری مخ موشِ قفسِ پر از اسباب‌بازی بیشتر بود','ضخامت بخش خاکستری مخ موشِ قفس خالی بیشتر بود','هر دو موش از یادگیری ناتوان شدند'], a:1,
+ e:'نتیجه: ضخامت بخش خاکستری مخ حیوانی که در قفس پر از اسباب‌بازی نگهداری شده بود، بیشتر از موشِ قفس خالی بود؛ یعنی محیط غنی ساختار مغز را تغییر می‌دهد.'},
+{q:'دربارۀ ترمیم آسیب‌ها در بافت مغزی کدام گزینه درست است؟',
+ o:['نورون‌ها تکثیر می‌شوند و سلول‌های ازدست‌رفته را جایگزین می‌کنند','نورون‌ها دیگر تکثیر نمی‌شوند، اما نورون‌های سالم با ایجاد ارتباطات جدید به جبران عملکرد می‌پردازند','بافت مغزی هرگز بهبود نمی‌یابد','فقط داروها مغز را ترمیم می‌کنند'], a:1,
+ e:'نورون‌ها سلول‌های تمایزیافتۀ‌ای هستند که دیگر تکثیر نمی‌شوند؛ اما تغییرپذیری در بهبود نسبی نقش دارد: پس از سکتۀ مغزی، با تمرین و استفادهٔ دوباره، نورون‌های سالم ارتباطات جدید می‌سازند.'},
+{q:'به مواد شیمیایی ناقل پیام در سیستم عصبی چه می‌گویند؟',
+ o:['هورمون','نوروترانسمیتر','آنزیم','سیناپس'], a:1,
+ e:'نورون‌ها با رهاسازی مواد شیمیایی ناقل به نام نوروترانسمیتر به تبادل پیام می‌پردازند؛ کم یا زیاد شدن این مواد سبب بروز بیماری می‌شود.'},
+{q:'در بیماری ام‌اس عملکرد کدام سلول‌ها دچار نقصان می‌شود؟',
+ o:['نورون‌های حرکتی','گروهی از سلول‌های پشتیبان سیستم عصبی مرکزی','سلول‌های خون','سلول‌های پوست'], a:1,
+ e:'اختلال عملکرد سلول‌های پشتیبان هم بیماری‌زا است؛ در ام‌اس عملکرد گروهی از سلول‌های پشتیبان سیستم عصبی مرکزی دچار نقصان می‌شود.'},
+{q:'چرا فرد معتاد در صورت عدم مصرف، دچار علائم ناخوشایند جسمی و روحی می‌شود؟',
+ o:['چون مواد اعتیادآور مدارهای مغزی مرتبط با پاداش، انگیزش و حافظه را تغییر داده‌اند و بدن به ماده وابسته شده است','چون مغز او کامل سالم شده است','چون فقط دچار کم‌خوابی ساده است','چون فقط عادت روانی دارد و مغزش بی‌تأثیر است'], a:0,
+ e:'مواد اعتیادآور تغییراتی در مدارهای مغزی مرتبط با سیستم پاداش، انگیزش و حافظه ایجاد می‌کنند؛ پس از دفعات اندکی وابستگی شکل می‌گیرد و عدم مصرف، علائم ناخوشایند جسمی و روحی ایجاد می‌کند.'}
+];
+</script>
+<script>
+/* ===== موتور آزمون ===== */
+const LET = ['الف','ب','پ','ت'];
+let qi = 0, score = 0, answered = false, userAns = [];
+
+function startQuiz(){
+  qi = 0; score = 0; userAns = [];
+  $('#qStart').style.display = 'none';
+  $('#qResult').style.display = 'none';
+  $('#qQuiz').style.display = 'block';
+  $('#qScore').textContent = 'امتیاز: ۰';
+  renderQ();
+}
+function renderQ(){
+  answered = false;
+  const cur = QS[qi];
+  $('#qCounter').innerHTML = `سؤال <b>${FA(qi+1)}</b> از ${FA(QS.length)}`;
+  $('#qBar').style.width = (qi / QS.length * 100) + '%';
+  const opts = cur.o.map((t,i) => `
+    <button class="opt" style="animation-delay:${i*.07}s" data-i="${i}" onclick="pick(this)">
+      <span class="badge">${LET[i]}</span><span>${t}</span>
+    </button>`).join('');
+  $('#qQuiz').innerHTML = `
+    <p class="qq"><span class="qnum">${FA(qi+1)}</span>${cur.q}</p>
+    ${opts}
+    <div class="expl" id="expl"></div>
+    <div class="q-actions"><button class="btn btn-grad btn-next" id="btnNext" onclick="nextQ()"></button></div>`;
+}
+function pick(btn){
+  if(answered) return;
+  answered = true;
+  const i = +btn.dataset.i, cur = QS[qi];
+  userAns.push(i);
+  $$('#qQuiz .opt').forEach((b,bi) => {
+    b.disabled = true;
+    if(bi === cur.a) b.classList.add('correct');
+    else if(bi === i) b.classList.add('wrong');
+    else b.classList.add('dim');
+  });
+  if(i === cur.a){ score++; }
+  $('#qScore').textContent = 'امتیاز: ' + FA(score);
+  const ex = $('#expl');
+  ex.className = 'expl show ' + (i === cur.a ? 'ok' : 'no');
+  ex.innerHTML = (i === cur.a
+    ? `<span class="et">✅ آفرین! پاسخ درست بود.</span><br>`
+    : `<span class="et">❌ پاسخ درست: گزینهٔ «${LET[cur.a]}»</span><br>`) + cur.e;
+  const nb = $('#btnNext');
+  nb.textContent = qi < QS.length - 1 ? 'سؤال بعدی ⬅' : 'مشاهدهٔ نتیجه 🎯';
+  nb.classList.add('show');
+}
+function nextQ(){
+  qi++;
+  if(qi < QS.length) renderQ();
+  else showResult();
+}
+function showResult(){
+  $('#qQuiz').style.display = 'none';
+  $('#qBar').style.width = '100%';
+  $('#qCounter').textContent = 'پایان آزمون 🎉';
+  const pct = Math.round(score / QS.length * 100);
+  let msg, emoji;
+  if(pct >= 90){ msg = 'عالی! تو یک متخصص واقعی دستگاه عصبی هستی!'; emoji = '🧠✨'; }
+  else if(pct >= 70){ msg = 'خیلی خوب بود! با یک مرور کوچک، بی‌رقیب می‌شوی!'; emoji = '🌟'; }
+  else if(pct >= 50){ msg = 'خوب بود! یک مرور دیگر روی جزوه به تو کمک زیادی می‌کند.'; emoji = '💪'; }
+  else { msg = 'اشکالی ندارد! از اول جزوه مرور کن و دوباره امتحان بده — حتماً بهتر می‌شوی.'; emoji = '🌱'; }
+  const conf = pct >= 70 ? '<div class="confetti" id="confetti"></div>' : '';
+  $('#qResult').style.display = 'block';
+  $('#qResult').innerHTML = `
+    ${conf}
+    <div class="q-result">
+      <span class="big">${emoji}</span>
+      <h3>نتیجهٔ آزمون تو</h3>
+      <div class="ring-wrap">
+        <svg width="190" height="190" viewBox="0 0 190 190">
+          <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7C3AED"/><stop offset=".55" stop-color="#EC4899"/><stop offset="1" stop-color="#06B6D4"/>
+          </linearGradient></defs>
+          <circle class="ring-bg" cx="95" cy="95" r="70"/>
+          <circle class="ring-val" id="ringVal" cx="95" cy="95" r="70"/>
+        </svg>
+        <div class="ring-num"><div>${FA(pct)}٪<br><small>${FA(score)} از ${FA(QS.length)}</small></div></div>
+      </div>
+      <div class="rmsg">${msg}</div>
+      <h3 style="font-size:17px;margin-top:22px">📋 مرور پاسخ‌ها <span class="small">(برای دیدن توضیح، روی هر سؤال بزن)</span></h3>
+      <div style="max-height:360px;overflow-y:auto;padding:4px 2px" id="revList"></div>
+      <div class="btn-row">
+        <button class="btn btn-grad" onclick="startQuiz()">🔁 آزمون مجدد</button>
+        <a class="btn btn-ghost" style="background:var(--grad);color:#fff;border:none" href="#top">📖 بازگشت به جزوه</a>
+      </div>
+    </div>`;
+  requestAnimationFrame(() => {
+    const C = 2*Math.PI*70;
+    $('#ringVal').style.strokeDashoffset = C * (1 - pct/100);
+  });
+  $('#revList').innerHTML = QS.map((q,i) => {
+    const ua = userAns[i], ok = ua === q.a;
+    return `<div class="rev" onclick="this.classList.toggle('open')">
+      <div class="rev-h"><span>${FA(i+1)}. ${q.q}</span>
+        <span><span class="rmark" style="color:${ok?'#059669':'#DC2626'}">${ok?'✅':'❌'}</span>
+        <span class="chev">▾</span></span></div>
+      <div class="rev-b">
+        ${q.o.map((o,oi) => `<div style="padding:3px 0;${oi===q.a?'font-weight:900;color:#047857':''}${oi===ua&&ua!==q.a?'font-weight:800;color:#B91C1C':''}">${oi===q.a?'✔ ':oi===ua?'✘ ':'&nbsp;&nbsp;&nbsp;'}${LET[oi]}) ${o}</div>`).join('')}
+        <div class="your-ans ${ok?'ok':'no'}">${ok ? 'پاسخ تو درست بود ✅' : 'پاسخ تو: گزینهٔ «'+LET[ua]+'» ❌'}</div>
+        <div style="margin-top:8px">💡 ${q.e}</div>
+      </div>
+    </div>`;
+  }).join('');
+  if(pct >= 70) setTimeout(confetti, 300);
+}
+function confetti(){
+  const box = $('#confetti'); if(!box) return;
+  const colors = ['#7C3AED','#EC4899','#06B6D4','#F59E0B','#10B981','#FDE68A','#F9A8D4'];
+  for(let i=0;i<90;i++){
+    const s = document.createElement('i');
+    s.style.right = Math.random()*100 + '%';
+    s.style.width = (6+Math.random()*8) + 'px';
+    s.style.height = (10+Math.random()*12) + 'px';
+    s.style.background = colors[Math.random()*colors.length|0];
+    s.style.borderRadius = Math.random() > .5 ? '50%' : '3px';
+    s.style.animationDuration = (2.2+Math.random()*2.4) + 's';
+    s.style.animationDelay = (Math.random()*.9) + 's';
+    box.appendChild(s);
+  }
+  setTimeout(() => { if(box) box.innerHTML = ''; }, 7000);
+}
+
+/* خوش‌آمد اولیهٔ نوار وضعیت */
+$('#qCounter').textContent = '۴۲ سؤال آماده است!';
+</script>
+<script>
+/* ===== جدید: مراحل تشریح مغز گوسفند ===== */
+let disTimer = null;
+function playDissect(){
+  clearTimeout(disTimer);
+  const steps = [...$$('#dissectSteps .step')];
+  steps.forEach(s => s.classList.remove('lit'));
+  steps.forEach((s,i) => { disTimer = setTimeout(() => s.classList.add('lit'), 600 + i*950); });
+}
+
+/* ===== جدید: فوت‌های کوزه‌گری (کارت‌های برگردان) ===== */
+const TIPS = [
+  ['🎬','۱. لذت خواندن درس را ببر','یک فیلم یا داستان کتابی که تا حالا دقت کرده‌ای، چقدر خوب در ذهنت می‌ماند؛ حتی ممکن است سال‌ها هم از یادت نرود! خب درس‌هایت را هم با همان علاقه بخوان تا با کمترین تلاش بهترین نتیجه را بگیری.'],
+  ['📍','۲. جای خوبی برای درس خواندن انتخاب کن','مکانی پیدا کن که هم در آن راحت باشی و هم عاملی برای پرت‌کردن حواست نداشته باشد؛ شرایط بیشترین تمرکز را فراهم کن.'],
+  ['📵','۳. فقط چیزهایی را که لازم داری دم دست بگذار','از تلفن، کامپیوتر و وسایل مشابه فاصله بگیر؛ یک نگاه چپ به این وسایل حداقل یک ساعت وقتت را می‌گیرد. کتاب، دفتر، یک مداد و خودکار کافی است.'],
+  ['📅','۴. کم‌کم و مرتب درس بخوان','نگذار درس‌ها برای شب امتحان روی هم جمع نشود! مرور همان شب، مطلب را خیلی خوب در ذهن نگه می‌دارد و چند مرور قبل از امتحان نهایی، نتیجه‌ای تضمینی دارد.'],
+  ['🔗','۵. مطالب بی‌ربط را به هم ربط بده','در مورد آنها داستان بساز، با حرف‌ها و کلماتشان شعر بساز؛ هر کاری کن که در ذهنت بهتر بماند. مغز برای یادگیری نیاز دارد بین مطالب ارتباط برقرار کند.'],
+  ['😴','۶. ورزش کن و خوب هم بخواب','ذهنِ بامنش و سرحال، مطالب را بهتر فرامی‌گیرد.'],
+  ['✍️','۷. خلاصه بنویس یا برای کسی توضیح بده','بعد از خواندن هر مطلب، خلاصه‌ای از آن را برای خودت بنویس تا بهتر در ذهنت بماند؛ یا یک نفر را بنشان و درس را برای او توضیح بده.'],
+  ['⏳','۸. اگر حوصله نداری، رهایش کن','اگر مطلبی را یاد نمی‌گیری، در زمانی دیگر سراغش برو؛ یک درس دیگر بخوان و بعداً دوباره برگرد سر مطلب قبلی.']
+];
+$('#tipsGrid').innerHTML = TIPS.map(([ic,t,b]) => `
+  <div class="fc" onclick="this.classList.toggle('flip')">
+    <div class="fc-in">
+      <div class="fc-face fc-front"><span class="fic">${ic}</span>${t}<span class="hint">برای دیدن توضیح کلیک کن ↻</span></div>
+      <div class="fc-face fc-back">${b}</div>
+    </div>
+  </div>`).join('');
+
+/* ===== جدید: نورون تعاملی ===== */
+const NEURON = {
+  dend:{t:'دندریت (دارینه)',c:'#A78BFA',tag:'زائدهٔ دریافت پیام',d:[
+    'زوائد متعدد و شاخه‌شاخهٔ اطراف جسم سلولی نورون.',
+    'پیام‌های رسیده از نورون‌های دیگر را دریافت می‌کند.',
+    'کتاب: هر نورون از طریق <b>آکسون (آمینه)</b> و <b>دندریت‌های (دارینه)</b> خود با تعدادی از نورون‌های دیگر ارتباط برقرار کرده و اعمال خاصی از بدن را کنترل می‌کند.']},
+  soma:{t:'جسم سلولی',c:'#7C3AED',tag:'بدنهٔ نورون',d:[
+    'مرکز نورون است؛ دندریت‌ها و آکسون به آن وصل‌اند.',
+    'پیام‌های دریافتی را جمع‌بندی می‌کند و به آکسون می‌فرستد <span class="extra">اطلاعات بیشتر</span>.']},
+  axon:{t:'آکسون (آمینه)',c:'#EC4899',tag:'زائدهٔ انتقال پیام',d:[
+    'زائدهٔ بلندی که پیام را از جسم سلولی به سمت پایانه‌ها می‌برد.',
+    'پیام عصبی در طول آکسون حرکت می‌کند — نقطهٔ زرد متحرک را در شکل ببین! ⚡']},
+  term:{t:'پایانه‌های آکسون',c:'#F472B6',tag:'انتهای آکسون',d:[
+    'انتهای شاخه‌دار آکسون است.',
+    'در این‌جا مواد شیمیایی ناقل (نوروترانسمیتر) برای عبور پیام به نورون بعدی رها می‌شوند <span class="extra">اطلاعات بیشتر</span>.']},
+  syn:{t:'سیناپس',c:'#F59E0B',tag:'محل ارتباط دو نورون ⭐',d:[
+    'محل ارتباط پایهٔ آکسونِ یک نورون با دندریت نورون بعدی.',
+    'تعداد سیناپس‌ها نه فقط در افراد مختلف، بلکه در یک فرد در زمان‌های مختلف نیز <b>متغیر</b> است.',
+    'یادگیری و تمرین ← ساخته‌شدن سیناپس‌های جدید و قوی‌تر! 🧠']},
+  next:{t:'نورون بعدی',c:'#2DD4BF',tag:'ادامهٔ شبکه',d:[
+    'دندریت‌های این نورون، پیام را از سیناپس دریافت می‌کند و ماجرا دوباره تکرار می‌شود.',
+    '۱۰۰ میلیارد نورون با چنین ارتباط‌هایی، شبکهٔ پیچیدهٔ عصبی درون مغز را ساخته‌اند!']}
+};
+function showNeuron(key){
+  const d = NEURON[key]; if(!d) return;
+  $$('#neuronsvg .npart').forEach(el => el.classList.toggle('on', el.dataset.key === key));
+  $$('#nrlegend .bchip').forEach(el => el.classList.toggle('on', el.dataset.key === key));
+  $('#nrinfo').style.setProperty('--k', d.c);
+  $('#nrinfo').style.animation = 'none'; void $('#nrinfo').offsetWidth; $('#nrinfo').style.animation = 'fadein .35s both';
+  $('#nrinfo').innerHTML = `<span class="btag">${d.tag}</span><h3>${d.t}</h3><ul>${d.d.map(x=>`<li>${x}</li>`).join('')}</ul>`;
+}
+const NLEG = [
+  ['dend','دندریت','#A78BFA'],['soma','جسم سلولی','#7C3AED'],['axon','آکسون','#EC4899'],
+  ['term','پایانه‌ها','#F472B6'],['syn','سیناپس','#F59E0B'],['next','نورون بعدی','#2DD4BF']
+];
+$('#nrlegend').innerHTML = NLEG.map(([k,t,c]) => `<button class="bchip" data-key="${k}" style="--c:${c}" onclick="showNeuron('${k}')">${t}</button>`).join('');
+$$('#neuronsvg .npart').forEach(el => el.addEventListener('click', () => showNeuron(el.dataset.key)));
+showNeuron('syn');
+if(reduceMotion){ $$('#neuronsvg animateMotion').forEach(a => a.remove()); }
+
+/* ===== جدید: اسلایدر سن و تغییرپذیری ===== */
+const ageR = $('#ageRange');
+function updAge(){
+  const a = +ageR.value;
+  const p = Math.max(8, Math.round(100 * Math.exp(-a/40)));
+  $('#plastBar').style.width = p + '%';
+  let lbl;
+  if(a <= 6) lbl = 'بسیار بالا 🚀';
+  else if(a <= 18) lbl = 'بالا 📈';
+  else if(a <= 40) lbl = 'متوسط ⚖️';
+  else if(a <= 70) lbl = 'کم‌تر 📉';
+  else lbl = 'کم، اما هنوز هست 💫';
+  $('#ageOut').innerHTML = `سن حدود ${FA(a)} سال — تغییرپذیری مغز: ${lbl} (${FA(p)}٪)`;
+}
+ageR.addEventListener('input', updAge);
+updAge();
+</script>
+</body>
+</html>
